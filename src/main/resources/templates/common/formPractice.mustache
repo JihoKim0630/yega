@@ -1,0 +1,13 @@
+{{>layouts/header}}
+
+<form action="/main/formSubmit" method="get">
+    <input type="text" id="name" name="name">
+    <button type="submit">get제출</button>
+</form>
+
+<form action="/main/formPostSubmit" method="post">
+    <input type="text" id="id" name="id">
+    <button type="submit">post제출</button>
+</form>
+
+{{>layouts/footer}}
