@@ -25,7 +25,7 @@ public class ProductRestController {
         Category category = new Category();
         category.setCategoryNm("첫번째 카테고리");
         product.setCategory(category);
-        product.setProductNm("지붕");
+        product.setProductNm("지붕2");
 
         return productRepository.save(product);
     }
