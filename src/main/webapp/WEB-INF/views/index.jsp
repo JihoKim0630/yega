@@ -9,7 +9,7 @@
 <!--Designerd by: http://bootstrapthemes.co-->
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<title>Rage Freebie HTML5 Landing page</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -137,13 +137,13 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-						<li><a href="#hello">Hello</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#service">Services</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#pricing">Pricing</a></li>
-						<li><a href="#blog">Blog</a></li>
-						<li><a href="#contact">Contact</a></li>
+						<li><a href="#hello">게시판</a></li>
+						<li><a href="#about">공지사항</a></li>
+						<li><a href="#service">관리자페이지</a></li>
+						<li><a href="#portfolio">기타</a></li>
+						<li><a href="#pricing">게시판2</a></li>
+						<%--<li><a href="#blog">Blog</a></li>
+						<li><a href="#contact">Contact</a></li>--%>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

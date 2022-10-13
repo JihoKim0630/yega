@@ -1,8 +1,8 @@
 package com.project.yega.repository;
 
-import com.project.yega.entity.Category;
-import com.project.yega.entity.Product;
 import org.springframework.data.repository.CrudRepository;
+
+import com.project.yega.entity.Category;
 
 public interface CategoryRepository extends CrudRepository<Category,Integer> {
 }
