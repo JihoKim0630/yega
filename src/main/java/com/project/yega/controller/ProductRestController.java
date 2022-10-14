@@ -3,8 +3,8 @@ package com.project.yega.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.yega.entity.Category;
-import com.project.yega.entity.Product;
+import com.project.yega.entity.CategoryEntity;
+import com.project.yega.entity.ProductEntity;
 import com.project.yega.repository.ProductRepository;
 
 import lombok.Data;
@@ -20,9 +20,9 @@ public class ProductRestController {
     }
 
     @GetMapping("/insertProduct")
-    public Product putProduct() {
-        Product product = new Product();
-        Category category = new Category();
+    public ProductEntity putProduct() {
+        ProductEntity product = new ProductEntity();
+        CategoryEntity category = new CategoryEntity();
         category.setCategoryNm("첫번째 카테고리");
         product.setCategory(category);
         product.setProductNm("지붕2");

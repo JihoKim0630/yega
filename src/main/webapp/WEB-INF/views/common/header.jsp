@@ -2,28 +2,16 @@
 <html lang="en">
 <head>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Header Title</title>
-<!-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> -->
-<!--
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
--->
-
 <link rel="icon" type="image/png" href="/favicon.ico">
 
 <!--Google Font link-->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-	rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
 <link rel="stylesheet" href="/assets/css/slick.css">
 <link rel="stylesheet" href="/assets/css/slick-theme.css">
@@ -33,7 +21,6 @@
 <link rel="stylesheet" href="/assets/css/bootstrap.css">
 <link rel="stylesheet" href="/assets/css/magnific-popup.css">
 <link rel="stylesheet" href="/assets/css/bootsnav.css">
-
 
 <!--For Plugins external css-->
 <!--<link rel="stylesheet" href="/assets/css/plugins.css" />-->
@@ -56,8 +43,7 @@
 				<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-search"></i></span>
 					<input type="text" class="form-control" placeholder="Search">
-					<span class="input-group-addon close-search"><i
-						class="fa fa-times"></i></span>
+					<span class="input-group-addon close-search"><i	class="fa fa-times"></i></span>
 				</div>
 			</div>
 		</div>
@@ -67,7 +53,7 @@
 			<!-- Start Atribute Navigation -->
 			<div class="attr-nav">
 				<ul>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
+					<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> <i class="fa fa-shopping-bag"></i> <span
 							class="badge">3</span>
 					</a>
@@ -96,36 +82,35 @@
 								<p class="m-top-10">
 									2x - <span class="price">$99.99</span>
 								</p></li>
-							<!---- More List ---->
+							-- More List --
 							<li class="total"><span class="pull-right"><strong>Total</strong>:
 									$0.00</span> <a href="#" class="btn btn-cart">Cart</a></li>
-						</ul></li>
-					<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-					<li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+						</ul></li> -->
+					<li class="search">
+						<a href="#"><i class="fa fa-search"></i></a>
+					</li>
+					<li class="side-menu">
+						<a href="#"><i class="fa fa-bars"></i></a>
+					</li>
 				</ul>
 			</div>
 			<!-- End Atribute Navigation -->
 
 			<!-- Start Header Navigation -->
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggler" data-toggle="collapse"
-					data-target="#navbar-menu">
+				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-menu">
 					<span></span> <span></span> <span></span>
 				</button>
 
-				<a class="navbar-brand" href="#brand"> <img
-					src="/assets/images/logo.png" class="logo logo-display m-top-10"
-					alt=""> <img src="/assets/images/logo.jpg"
-					class="logo logo-scrolled" alt="">
-
+				<a class="navbar-brand" href="#brand"> 
+					<img src="/assets/images/logo.png" class="logo logo-display m-top-10" alt=""> <img src="/assets/images/logo.jpg" class="logo logo-scrolled" alt="">
 				</a>
 			</div>
 			<!-- End Header Navigation -->
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbar-menu">
-				<ul class="nav navbar-nav navbar-right" data-in="fadeInDown"
-					data-out="fadeOutUp">
+				<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 					<li><a href="#hello">헬로</a></li>
 					<li><a href="#about">어바웃</a></li>
 					<li><a href="#service">service</a></li>
@@ -174,11 +159,12 @@
 			<div class="row">
 				<div class="main_home">
 					<div class="home_text">
-						<h1 class="text-white">메인 <br /> 이미지 들어갈 곳</h1>
+						<h1 class="text-white">
+							메인 <br /> 이미지 들어갈 곳(나중에 메인페이지로 옮겨야댐..)
+						</h1>
 					</div>
-
 					<div class="home_btns m-top-40">
-						<a href="https://bootstrapthemes.co" target="_blank" class="btn btn-primary m-top-20">버튼1</a>
+						<a href="https://bootstrapthemes.co" target="_blank" class="btn btn-primary m-top-20">버튼1</a> 
 						<a href="https://bootstrapthemes.co" target="_blank" class="btn btn-default m-top-20">버튼2</a>
 					</div>
 
@@ -208,16 +194,16 @@
 	<script>
 		function showmap() {
 			var mapOptions = {
-				zoom: 8,
-				scrollwheel: false,
-				center: new google.maps.LatLng(-34.397, 150.644),
-				mapTypeId: google.maps.MapTypeId.ROADMAP
+				zoom : 8,
+				scrollwheel : false,
+				center : new google.maps.LatLng(-34.397, 150.644),
+				mapTypeId : google.maps.MapTypeId.ROADMAP
 			};
-			var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+			var map = new google.maps.Map(
+					document.getElementById('map_canvas'), mapOptions);
 			$('.mapheight').css('height', '350');
 			$('.maps_text h3').hide();
 		}
-
 	</script>
 	<script src="/assets/js/plugins.js"></script>
 	<script src="/assets/js/main.js"></script>

@@ -6,7 +6,7 @@
 <body>
 	<div class="bg-dark text-white p-5">
 	<!--    <h1>{{userName}} 님, 반갑습니다.</h1>-->
-	    <h1> 님, 반갑습니다. nice to meet you~~</h1>
-	    ${pageContext.request.contextPath}
+	    <h1> ${userName}님, 반갑습니다. nice to meet you~~</h1>
+	    <%-- ${pageContext.request.contextPath} --%>
 	</div>
 </body>
