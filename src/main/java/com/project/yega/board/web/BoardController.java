@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.yega.LoggingRunner;
 import com.project.yega.board.dto.EnquiryInDto;
@@ -17,9 +18,9 @@ import com.project.yega.entity.BoardContentEntity;
 import lombok.Data;
 
 @Data
-@RestController
+@Controller
 @RequestMapping("/board")
-public class BoardRestController {
+public class BoardController {
 
 	private final BoardService boardService;
 
@@ -53,6 +54,7 @@ public class BoardRestController {
       * 문의사항 게시글 create API
       */
      @PostMapping(value ="/insertContents")
+     @ResponseBody
      public BoardContentEntity putBoardContents(EnquiryInDto inputDto) {
     	 
     	 logger.debug("========inDTO : \n" + inputDto.toString());

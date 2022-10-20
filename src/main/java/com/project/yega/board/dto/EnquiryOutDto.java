@@ -30,7 +30,6 @@ public class EnquiryOutDto {
     			 null,
     			contentSub,	
     			  authorId,  	
-    			  createDt,	
     			  alarmYn,		
     			  displayYn,	
     			  lockYn,		

@@ -12,10 +12,10 @@
 					<div class="card">
 						<div class="card-body">
 							<h4 class="card-title">문의사항</h4>
-							<p class="card-description">
+							<%-- <p class="card-description">
 								Add class
 								<code>.table-striped</code>
-							</p>
+							</p> --%>
 							<div class="table-responsive">
 								<table class="table table-striped table-hover">
 									<thead>
@@ -29,10 +29,9 @@
 									</thead>
 									<tbody>
 										<c:forEach var="i" items="${contentList}" varStatus="vs">
-										${vs.current.contentSub}<br>
 										       <%-- <c:set var="weekNum" value="${(i+startWeekDay-2)%7}"></c:set> --%>
 										     <tr>
-												<td class="py-1">${vs.index}+1</td>
+												<td class="py-1">${vs.index+1}</td>
 												<td>${vs.current.contentSub}</td>
 												<td>
 													<!-- <div class="progress">
