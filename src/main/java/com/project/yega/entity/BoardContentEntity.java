@@ -14,7 +14,7 @@ import lombok.Data;
 @Entity
 @Table(name="BOARD_CONTENT")
 public class BoardContentEntity {
-    @Id @GeneratedValue
+	@Id @GeneratedValue
     @Column(name="CONTENT_SEQ")
     private int id;
 
@@ -22,7 +22,26 @@ public class BoardContentEntity {
     @JoinColumn(name = "BOARD_ID")
     private BoardEntity board;
     
-    private String contentSub;	//글제목
+    public BoardContentEntity(int id, BoardEntity board, String contentSub, String authorId, String createDt,
+			String alarmYn, String displayYn, String lockYn, String contentPw, String contentSbst, int lookUpCnt) {
+		super();
+		this.id = id;
+		this.board = board;
+		this.contentSub = contentSub;
+		this.authorId = authorId;
+		this.createDt = createDt;
+		this.alarmYn = alarmYn;
+		this.displayYn = displayYn;
+		this.lockYn = lockYn;
+		this.contentPw = contentPw;
+		this.contentSbst = contentSbst;
+		this.lookUpCnt = lookUpCnt;
+	}
+	public BoardContentEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	private String contentSub;	//글제목
     private String authorId;  	//작성자아이디
     private String createDt;	//생성일시
     private String alarmYn;		//공지여부

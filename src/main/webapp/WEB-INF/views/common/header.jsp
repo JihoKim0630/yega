@@ -1,210 +1,107 @@
 <!doctype html>
 <html lang="en">
 <head>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Header Title</title>
-<link rel="icon" type="image/png" href="/favicon.ico">
+<title>Zay Shop eCommerce HTML CSS Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--Google Font link-->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="apple-touch-icon" href="/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
-<link rel="stylesheet" href="/assets/css/slick.css">
-<link rel="stylesheet" href="/assets/css/slick-theme.css">
-<link rel="stylesheet" href="/assets/css/animate.css">
-<link rel="stylesheet" href="/assets/css/fonticons.css">
-<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/magnific-popup.css">
-<link rel="stylesheet" href="/assets/css/bootsnav.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/templatemo.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-<!--For Plugins external css-->
-<!--<link rel="stylesheet" href="/assets/css/plugins.css" />-->
-
-<!--Theme custom css -->
-<link rel="stylesheet" href="/assets/css/style.css">
-<!--<link rel="stylesheet" href="/assets/css/colors/maron.css">-->
-
-<!--Theme Responsive css-->
-<link rel="stylesheet" href="/assets/css/responsive.css" />
-
-<script src="/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
 </head>
 <body>
-	<nav
-		class="navbar navbar-light navbar-expand-lg  navbar-fixed white no-background bootsnav">
-		<!-- Start Top Search -->
-		<div class="top-search">
-			<div class="container">
-				<div class="input-group">
-					<span class="input-group-addon"><i class="fa fa-search"></i></span>
-					<input type="text" class="form-control" placeholder="Search">
-					<span class="input-group-addon close-search"><i	class="fa fa-times"></i></span>
-				</div>
-			</div>
-		</div>
-		<!-- End Top Search -->
+	<!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+	<!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
 
-		<div class="container">
-			<!-- Start Atribute Navigation -->
-			<div class="attr-nav">
-				<ul>
-					<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <i class="fa fa-shopping-bag"></i> <span
-							class="badge">3</span>
-					</a>
-						<ul class="dropdown-menu cart-list">
-							<li><a href="#" class="photo"><img
-									src="/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-								<h6>
-									<a href="#">Delica omtantur </a>
-								</h6>
-								<p class="m-top-10">
-									2x - <span class="price">$99.99</span>
-								</p></li>
-							<li><a href="#" class="photo"><img
-									src="/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-								<h6>
-									<a href="#">Delica omtantur </a>
-								</h6>
-								<p class="m-top-10">
-									2x - <span class="price">$99.99</span>
-								</p></li>
-							<li><a href="#" class="photo"><img
-									src="/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-								<h6>
-									<a href="#">Delica omtantur </a>
-								</h6>
-								<p class="m-top-10">
-									2x - <span class="price">$99.99</span>
-								</p></li>
-							-- More List --
-							<li class="total"><span class="pull-right"><strong>Total</strong>:
-									$0.00</span> <a href="#" class="btn btn-cart">Cart</a></li>
-						</ul></li> -->
-					<li class="search">
-						<a href="#"><i class="fa fa-search"></i></a>
-					</li>
-					<li class="side-menu">
-						<a href="#"><i class="fa fa-bars"></i></a>
-					</li>
-				</ul>
-			</div>
-			<!-- End Atribute Navigation -->
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                <img class="img-logo" src="/assets/img/logo_yega.png" alt="">
+            </a>
 
-			<!-- Start Header Navigation -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-menu">
-					<span></span> <span></span> <span></span>
-				</button>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-				<a class="navbar-brand" href="#brand"> 
-					<img src="/assets/images/logo.png" class="logo logo-display m-top-10" alt=""> <img src="/assets/images/logo.jpg" class="logo logo-scrolled" alt="">
-				</a>
-			</div>
-			<!-- End Header Navigation -->
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                    </a>
+                </div>
+            </div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navbar-menu">
-				<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-					<li><a href="#hello">헬로</a></li>
-					<li><a href="#about">어바웃</a></li>
-					<li><a href="#service">service</a></li>
-					<li><a href="#portfolio">portfolio</a></li>
-					<li><a href="#pricing">pricing</a></li>
-					<%--<li><a href="#blog">Blog</a></li>
-						<li><a href="#contact">Contact</a></li>--%>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-
-
-		<!-- Start Side Menu -->
-		<div class="side">
-			<a href="#" class="close-side"><i class="fa fa-times"></i></a>
-			<div class="widget">
-				<h6 class="title">Custom Pages</h6>
-				<ul class="link">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Portfolio</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</div>
-			<div class="widget">
-				<h6 class="title">Additional Links</h6>
-				<ul class="link">
-					<li><a href="#">Retina Homepage</a></li>
-					<li><a href="#">New Page Examples</a></li>
-					<li><a href="#">Parallax Sections</a></li>
-					<li><a href="#">Shortcode Central</a></li>
-					<li><a href="#">Ultimate Font Collection</a></li>
-				</ul>
-			</div>
-		</div>
-		<!-- End Side Menu -->
-	</nav>
-
-	<!--Home Sections-->
-
-	<section id="hello" class="home bg-mega">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="main_home">
-					<div class="home_text">
-						<h1 class="text-white">
-							메인 <br /> 이미지 들어갈 곳(나중에 메인페이지로 옮겨야댐..)
-						</h1>
-					</div>
-					<div class="home_btns m-top-40">
-						<a href="https://bootstrapthemes.co" target="_blank" class="btn btn-primary m-top-20">버튼1</a> 
-						<a href="https://bootstrapthemes.co" target="_blank" class="btn btn-default m-top-20">버튼2</a>
-					</div>
-
-				</div>
-			</div>
-			<!--End off row-->
-		</div>
-		<!--End off container -->
-	</section>
-	<!--End off Home Sections-->
-	<!-- JS includes -->
-
-	<script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
-	<script src="/assets/js/vendor/popper.min.js"></script>
-	<script src="/assets/js/vendor/bootstrap.min.js"></script>
-
-	<script src="/assets/js/jquery.magnific-popup.js"></script>
-	<script src="/assets/js/jquery.easing.1.3.js"></script>
-	<script src="/assets/js/slick.min.js"></script>
-	<script src="/assets/js/jquery.collapse.js"></script>
-	<script src="/assets/js/bootsnav.js"></script>
-	<!-- paradise slider js -->
-
-	<script src="http://maps.google.com/maps/api/js?key=AIzaSyD_tAQD36pKp9v4at5AnpGbvBUsLCOSJx8"></script>
-	<script src="/assets/js/gmaps.min.js"></script>
-
-	<script>
-		function showmap() {
-			var mapOptions = {
-				zoom : 8,
-				scrollwheel : false,
-				center : new google.maps.LatLng(-34.397, 150.644),
-				mapTypeId : google.maps.MapTypeId.ROADMAP
-			};
-			var map = new google.maps.Map(
-					document.getElementById('map_canvas'), mapOptions);
-			$('.mapheight').css('height', '350');
-			$('.maps_text h3').hide();
-		}
-	</script>
-	<script src="/assets/js/plugins.js"></script>
-	<script src="/assets/js/main.js"></script>
+        </div>
+    </nav>
+    <!-- Close Header -->
+	<!-- Start Script -->
+    <script src="/assets/js/jquery-1.11.0.min.js"></script>
+    <script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/templatemo.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <!-- End Script -->
 </body>

@@ -1,1112 +1,432 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-
-<!--Designerd by: http://bootstrapthemes.co-->
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Rage Freebie HTML5 Landing page</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="/favicon.ico">
+    <title>Zay Shop eCommerce HTML CSS Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!--Google Font link-->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="apple-touch-icon" href="/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/templatemo.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
 
-	<link rel="stylesheet" href="/assets/css/slick.css">
-	<link rel="stylesheet" href="/assets/css/slick-theme.css">
-	<link rel="stylesheet" href="/assets/css/animate.css">
-	<link rel="stylesheet" href="/assets/css/fonticons.css">
-	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="/assets/css/magnific-popup.css">
-	<link rel="stylesheet" href="/assets/css/bootsnav.css">
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+<!--
+    
+TemplateMo 559 Zay Shop
 
+https://templatemo.com/tm-559-zay-shop
 
-	<!--For Plugins external css-->
-	<!--<link rel="stylesheet" href="/assets/css/plugins.css" />-->
-
-	<!--Theme custom css -->
-	<link rel="stylesheet" href="/assets/css/style.css">
-	<!--<link rel="stylesheet" href="/assets/css/colors/maron.css">-->
-
-	<!--Theme Responsive css-->
-	<link rel="stylesheet" href="/assets/css/responsive.css" />
-
-	<script src="/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+-->
 </head>
 
-<body data-spy="scroll" data-target=".navbar-collapse">
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
 
 
-	<!-- Preloader -->
-	<div id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_one"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_four"></div>
-			</div>
-		</div>
-	</div>
-	<!--End off Preloader -->
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                Zay
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
-	<div class="culmn">
-		<!--Home page style-->
+
+    <!-- Start Banner Hero -->
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="/assets/img/banner_img_01.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>Zay</b> eCommerce</h1>
+                                <h3 class="h2">Tiny and Perfect eCommerce Template</h3>
+                                <p>
+                                    Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). 
+                                    This template is 100% free provided by <a rel="sponsored" class="text-success" href="https://templatemo.com" target="_blank">TemplateMo</a> website. 
+                                    Image credits go to <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
+                                    <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and
+                                    <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="/assets/img/banner_img_02.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Proident occaecat</h1>
+                                <h3 class="h2">Aliquip ex ea commodo consequat</h3>
+                                <p>
+                                    You are permitted to use this Zay CSS template for your commercial websites. 
+                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="/assets/img/banner_img_03.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Repr in voluptate</h1>
+                                <h3 class="h2">Ullamco laboris nisi ut </h3>
+                                <p>
+                                    We bring you 100% free CSS templates for your websites. 
+                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+    <!-- End Banner Hero -->
 
 
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Categories of The Month</h1>
+                <p>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="/assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">Watches</h5>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="/assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="/assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- End Categories of The Month -->
 
-		<nav class="navbar navbar-light navbar-expand-lg  navbar-fixed white no-background bootsnav">
-			<!-- Start Top Search -->
-			<div class="top-search">
-				<div class="container">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-search"></i></span>
-						<input type="text" class="form-control" placeholder="Search">
-						<span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-					</div>
-				</div>
-			</div>
-			<!-- End Top Search -->
 
-			<div class="container">
-				<!-- Start Atribute Navigation -->
-				<div class="attr-nav">
-					<ul>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-shopping-bag"></i>
-                                    <span class="badge">3</span>
-                                </a>
-							<ul class="dropdown-menu cart-list">
-								<li>
-									<a href="#" class="photo"><img src="/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-									<h6><a href="#">Delica omtantur </a></h6>
-									<p class="m-top-10">2x - <span class="price">$99.99</span></p>
-								</li>
-								<li>
-									<a href="#" class="photo"><img src="/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-									<h6><a href="#">Delica omtantur </a></h6>
-									<p class="m-top-10">2x - <span class="price">$99.99</span></p>
-								</li>
-								<li>
-									<a href="#" class="photo"><img src="/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-									<h6><a href="#">Delica omtantur </a></h6>
-									<p class="m-top-10">2x - <span class="price">$99.99</span></p>
-								</li>
-								<!---- More List ---->
-								<li class="total">
-									<span class="pull-right"><strong>Total</strong>: $0.00</span>
-									<a href="#" class="btn btn-cart">Cart</a>
-								</li>
-							</ul>
-						</li>
-						<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-						<li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
-					</ul>
-				</div>
-				<!-- End Atribute Navigation -->
-
-				<!-- Start Header Navigation -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-
-					<a class="navbar-brand" href="#brand">
-
-                            <img src="/assets/images/logo.png" class="logo logo-display m-top-10" alt="">
-                            <img src="/assets/images/logo.jpg" class="logo logo-scrolled" alt="">
-
+    <!-- Start Featured Product -->
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Featured Product</h1>
+                    <p>
+                        Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="shop-single.html">
+                            <img src="/assets/img/feature_prod_01.jpg" class="card-img-top" alt="...">
                         </a>
-				</div>
-				<!-- End Header Navigation -->
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-						<li><a href="#hello">게시판</a></li>
-						<li><a href="#about">공지사항</a></li>
-						<li><a href="#service">관리자페이지</a></li>
-						<li><a href="#portfolio">기타</a></li>
-						<li><a href="#pricing">게시판2</a></li>
-						<%--<li><a href="#blog">Blog</a></li>
-						<li><a href="#contact">Contact</a></li>--%>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-
-
-			<!-- Start Side Menu -->
-			<div class="side">
-				<a href="#" class="close-side"><i class="fa fa-times"></i></a>
-				<div class="widget">
-					<h6 class="title">Custom Pages</h6>
-					<ul class="link">
-						<li><a href="#">About</a></li>
-						<li><a href="#">Services</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Portfolio</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-				</div>
-				<div class="widget">
-					<h6 class="title">Additional Links</h6>
-					<ul class="link">
-						<li><a href="#">Retina Homepage</a></li>
-						<li><a href="#">New Page Examples</a></li>
-						<li><a href="#">Parallax Sections</a></li>
-						<li><a href="#">Shortcode Central</a></li>
-						<li><a href="#">Ultimate Font Collection</a></li>
-					</ul>
-				</div>
-			</div>
-			<!-- End Side Menu -->
-
-		</nav>
-
-		<!--Home Sections-->
-
-		<section id="hello" class="home bg-mega">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="main_home">
-						<div class="home_text">
-							<h1 class="text-white">WE’RE <br /> CREATIVE DESIGNERS!</h1>
-						</div>
-
-						<div class="home_btns m-top-40">
-							<a href="https://bootstrapthemes.co" target="_blank" class="btn btn-primary m-top-20">GET STARTED</a>
-							<a href="https://bootstrapthemes.co" target="_blank" class="btn btn-default m-top-20">DOWNLOAD NOW</a>
-						</div>
-
-					</div>
-				</div>
-				<!--End off row-->
-			</div>
-			<!--End off container -->
-		</section>
-		<!--End off Home Sections-->
-
-
-		<!--About Sections-->
-		<section id="about" class="about roomy-100">
-			<div class="container">
-				<div class="row">
-					<div class="main_about">
-						<div class="col-md-6">
-							<div class="about_content">
-								<h2>ABOUT US</h2>
-								<div class="separator_left"></div>
-
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-
-								<div class="about_btns m-top-40">
-									<a href="" class="btn btn-primary">DOWNLOAD NOW</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="about_accordion wow fadeIn">
-								<div id="faq_main_content" class="faq_main_content">
-									<h6><i class="fa fa-angle-right"></i> UNIQUE DESIGN </h6>
-									<div>
-										<div class="content">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
-
-										</div>
-									</div>
-									<!-- End off accordion item-1 -->
-
-									<h6 class="open"><i class="fa fa-angle-right"></i> EXPERIENCE TEAM</h6>
-									<div class="open">
-										<div class="content">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
-										</div>
-									</div>
-									<!-- End off accordion item-2 -->
-
-									<h6> <i class="fa fa-angle-right"></i> GREAT SERVICE </h6>
-									<div>
-										<div class="content">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
-										</div>
-									</div>
-									<!-- End off accordion item-3 -->
-
-									<h6><i class="fa fa-angle-right"></i> FREE UPDATES </h6>
-									<div>
-										<div class="content">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
-										</div>
-									</div>
-									<!-- End off accordion item-4 -->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End off row-->
-			</div>
-			<!--End off container -->
-			<br />
-			<br />
-			<br />
-			<br />
-			<hr />
-			<br />
-			<br />
-			<div class="container">
-				<div class="row">
-					<div class="about_bottom_content">
-						<div class="col-md-4">
-							<div class="about_bottom_item m-top-20">
-								<div class="ab_head">
-									<div class="ab_head_icon">
-										<i class="icofont icofont-fire-burn"></i>
-									</div>
-									<h6 class="m-top-20"> WE’RE CREATIVE</h6>
-								</div>
-								<p class="m-top-20">Lorem ipsum dolor sit amet, consectetuer adipiscing ealit, sed diaim nonummy nibsih euismod tincidiunt laorieet doloire magna diam aliquafm erat voluitpati. </p>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="about_bottom_item m-top-20">
-								<div class="ab_head">
-									<div class="ab_head_icon">
-										<i class="icofont icofont-speech-comments"></i>
-									</div>
-									<h6 class="m-top-20">WE'RE FRIENDLY</h6>
-								</div>
-								<p class="m-top-20">Lorem ipsum dolor sit amet, consectetuer adipiscing ealit, sed diaim nonummy nibsih euismod tincidiunt laorieet doloire magna diam aliquafm erat voluitpati. </p>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="about_bottom_item m-top-20">
-								<div class="ab_head">
-									<div class="ab_head_icon">
-										<i class="icofont icofont-heart"></i>
-									</div>
-									<h6 class="m-top-20">WE LOVE MINIMALISM</h6>
-								</div>
-								<p class="m-top-20">Lorem ipsum dolor sit amet, consectetuer adipiscing ealit, sed diaim nonummy nibsih euismod tincidiunt laorieet doloire magna diam aliquafm erat voluitpati. </p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End off row-->
-			</div>
-			<!--End off container -->
-		</section>
-		<!--End off About section -->
-
-
-		<!--Video section-->
-		<section id="video" class="video">
-			<div class="overlay"></div>
-			<div class="main_video roomy-100 m-top-100 m-bottom-100 text-center">
-				<div class="video_text text-center">
-					<a href="http://www.youtube.com/watch?v=7HKoqNJtMTQ" class="video-link"><span class="fa fa-play"></span></a>
-				</div>
-			</div>
-		</section>
-		<!--End off video section -->
-
-
-		<div class="container">
-			<div class="row">
-				<div class="main_featured m-top-100">
-					<div class="col-sm-12">
-						<div class="head_title text-center">
-							<h2>FEATURED WORK</h2>
-							<div class="separator_auto"></div>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="featured_slider">
-			<div>
-				<div class="featured_img">
-					<img src="/assets/images/fprojects/1.jpg" alt="" />
-					<a href="/assets/images/fprojects/1.jpg" class="popup-img"></a>
-				</div>
-			</div>
-			<div>
-				<div class="featured_img">
-					<img src="/assets/images/fprojects/2.jpg" alt="" />
-					<a href="/assets/images/fprojects/2.jpg" class="popup-img"></a>
-				</div>
-			</div>
-			<div>
-				<div class="featured_img">
-					<img src="/assets/images/fprojects/3.jpg" alt="" />
-					<a href="/assets/images/fprojects/3.jpg" class="popup-img"></a>
-				</div>
-			</div>
-			<div>
-				<div class="featured_img">
-					<img src="/assets/images/fprojects/4.jpg" alt="" />
-					<a href="/assets/images/fprojects/4.jpg" class="popup-img"></a>
-				</div>
-			</div>
-			<div>
-				<div class="featured_img">
-					<img src="/assets/images/fprojects/5.jpg" alt="" />
-					<a href="/assets/images/fprojects/5.jpg" class="popup-img"></a>
-				</div>
-			</div>
-		</div>
-		<!-- End off featured slider -->
-
-
-
-		<!--Service Section-->
-		<section id="service" class="service">
-			<div class="container">
-				<div class="row">
-					<div class="main_service roomy-100">
-						<div class="col-md-8 col-sm-10 mr-md-auto ml-md-auto mr-sm-auto ml-sm-auto">
-							<div class="head_title text-center">
-								<h2>OUR SERVICES</h2>
-								<div class="separator_auto"></div>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-							</div>
-						</div>
-						<div class="row">
-
-
-							<div class="col-md-4">
-								<div class="service_item">
-									<i class="icofont icofont-light-bulb"></i>
-									<h6 class="m-top-30">BRANDING</h6>
-									<div class="separator_small"></div>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="service_item">
-									<i class="icofont icofont-imac"></i>
-									<h6 class="m-top-30">BRANDING</h6>
-									<div class="separator_small"></div>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="service_item">
-									<i class="icofont icofont-video"></i>
-									<h6 class="m-top-30">BRANDING</h6>
-									<div class="separator_small"></div>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End off row -->
-			</div>
-			<!--End off container -->
-		</section>
-		<!--End off Featured section-->
-
-
-		<!--Impress section-->
-		<section id="impress" class="impress roomy-100">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="main_impress text-center">
-						<div class="col-sm-8 mr-sm-auto ml-sm-auto">
-							<h2 class="text-white text-uppercase">Impressed? Let’s work together</h2>
-							<p class="m-top-40 text-white">At vero eos et accusamus et iusto odio dignissimos ducimus qui ditqs praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias</p>
-
-							<div class="impress_btns m-top-30">
-								<a href="" class="btn btn-primary m-top-20">HIRE US</a>
-								<a href="" class="btn btn-default m-top-20">HIRE US</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End off row -->
-			</div>
-			<!--End off container -->
-		</section>
-		<!-- End off Impress section-->
-
-
-
-
-		<!--Portfolio Section-->
-		<section id="portfolio" class="portfolio lightbg">
-			<div class="container">
-				<div class="row">
-					<div class="main_portfolio roomy-100">
-						<div class="col-md-8 mr-md-auto ml-md-auto">
-							<div class="head_title text-center">
-								<h2>OUR PORTOFLIO</h2>
-								<div class="separator_auto"></div>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="portfolio_content">
-								<div class="col-md-8">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="portfolio_item">
-												<img src="/assets/images/Portfolio/2.jpg" alt="" />
-												<div class="portfolio_hover text-center">
-													<h6 class="text-uppercase text-white">Title</h6>
-													<p class=" text-white">Lorem ipsum dolor sit amet</p>
-													<div class="portfolio_hover_icon">
-														<a href="/assets/images/Portfolio/2.jpg" class="popup-img"><i class="fa fa-expand"></i></a>
-														<a href=""><i class="fa fa-search"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 m-top-30">
-											<div class="portfolio_item portfolio_item2">
-												<img src="/assets/images/Portfolio/3.jpg" alt="" />
-												<div class="portfolio_hover text-center">
-													<h6 class="text-uppercase text-white">Title</h6>
-													<p class=" text-white">Lorem ipsum dolor sit amet</p>
-													<div class="portfolio_hover_icon">
-														<a href="/assets/images/Portfolio/3.jpg" class="popup-img"><i class="fa fa-expand"></i></a>
-														<a href=""><i class="fa fa-search"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 m-top-30">
-											<div class="portfolio_item portfolio_item2">
-												<img src="/assets/images/Portfolio/5.jpg" alt="" />
-												<div class="portfolio_hover text-center">
-													<h6 class="text-uppercase text-white">Title</h6>
-													<p class=" text-white">Lorem ipsum dolor sit amet</p>
-													<div class="portfolio_hover_icon">
-														<a href="/assets/images/Portfolio/5.jpg" class="popup-img"><i class="fa fa-expand"></i></a>
-														<a href=""><i class="fa fa-search"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="portfolio_item portfolio_item3 sm-m-top-30">
-										<img src="/assets/images/Portfolio/1.jpg" alt="" />
-										<div class="portfolio_hover text-center">
-											<h6 class="text-uppercase text-white">Title</h6>
-											<p class=" text-white">Lorem ipsum dolor sit amet</p>
-											<div class="portfolio_hover_icon">
-												<a href="/assets/images/Portfolio/1.jpg" class="popup-img"><i class="fa fa-expand"></i></a>
-												<a href=""><i class="fa fa-search"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 m-top-30">
-									<div class="portfolio_item portfolio_item2">
-										<img src="/assets/images/Portfolio/6.jpg" alt="" />
-										<div class="portfolio_hover text-center">
-											<h6 class="text-uppercase text-white">Title</h6>
-											<p class=" text-white">Lorem ipsum dolor sit amet</p>
-											<div class="portfolio_hover_icon">
-												<a href="/assets/images/Portfolio/6.jpg" class="popup-img"><i class="fa fa-expand"></i></a>
-												<a href=""><i class="fa fa-search"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-8 m-top-30">
-									<div class="portfolio_item">
-										<img src="/assets/images/Portfolio/4.jpg" alt="" />
-										<div class="portfolio_hover text-center">
-											<h6 class="text-uppercase text-white">Title</h6>
-											<p class=" text-white">Lorem ipsum dolor sit amet</p>
-											<div class="portfolio_hover_icon">
-												<a href="/assets/images/Portfolio/4.jpg" class="popup-img"><i class="fa fa-expand"></i></a>
-												<a href=""><i class="fa fa-search"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End off row -->
-			</div>
-			<!--End off container -->
-		</section>
-		<!-- End off Portfolio section-->
-
-
-		<!--Skill Sections-->
-		<section id="skill" class="skill roomy-100">
-			<div class="container">
-				<div class="row">
-					<div class="main_skill">
-						<div class="col-md-6">
-							<div class="skill_content wow fadeIn">
-								<h2>Our skill</h2>
-								<div class="separator_left"></div>
-
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="skill_bar sm-m-top-50">
-								<div class="teamskillbar clearfix m-top-20" data-percent="80%">
-									<h6>GRAPHIC DESIGN</h6>
-									<div class="teamskillbar-bar"></div>
-								</div>
-								<!-- End Skill Bar -->
-
-								<div class="teamskillbar clearfix m-top-50" data-percent="75%">
-									<h6>TYPOGRAPHY</h6>
-									<div class="teamskillbar-bar"></div>
-								</div>
-								<!-- End Skill Bar -->
-
-								<div class="teamskillbar clearfix m-top-50" data-percent="90%">
-									<h6>HTML / CSS</h6>
-									<div class="teamskillbar-bar"></div>
-								</div>
-								<!-- End Skill Bar -->
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End off row-->
-			</div>
-			<!--End off container -->
-			<br />
-			<br />
-			<br />
-			<hr />
-			<br />
-			<br />
-			<br />
-			<div class="container">
-				<div class="row">
-					<div class="skill_bottom_content text-center">
-						<div class="col-md-3">
-							<div class="skill_bottom_item">
-								<h2 class="statistic-counter">3468</h2>
-								<div class="separator_small"></div>
-								<h5><em>Projects Finished</em></h5>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="skill_bottom_item">
-								<h2 class="statistic-counter">4638</h2>
-								<div class="separator_small"></div>
-								<h5><em>Happy Clients</em></h5>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="skill_bottom_item">
-								<h2 class="statistic-counter">3468</h2>
-								<div class="separator_small"></div>
-								<h5><em>Hours of work</em></h5>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="skill_bottom_item">
-								<h2 class="statistic-counter">3468</h2>
-								<div class="separator_small"></div>
-								<h5><em>Cup of coffee</em></h5>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End off row-->
-			</div>
-			<!--End off container -->
-		</section>
-		<!--End off Skill section -->
-
-
-
-		<!--Testimonial Section-->
-		<section id="testimonial" class="testimonial fix">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-
-
-					<div class="main_testimonial col-sm-8 ml-sm-auto mr-sm-auto">
-						<div class="head_title text-center roomy-100">
-							<h2 class="text-white">OUR TESTIMONIALS</h2>
-						</div>
-					</div>
-
-
-					<div class="testimonial_slid text-center">
-						<div class="testimonial_item">
-							<div class="col-sm-10 mr-sm-auto ml-sm-auto">
-								<p class="text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-
-								<div class="test_authour m-top-30">
-									<h6 class="text-white m-bottom-20">JOHN DOE - THEMEFOREST USER</h6>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-						</div>
-						<div class="testimonial_item">
-							<div class="col-sm-10 mr-sm-auto ml-sm-auto">
-								<p class="text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-
-								<div class="test_authour m-top-30">
-									<h6 class="text-white m-bottom-20">JOHN DOE - THEMEFOREST USER</h6>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-						</div>
-						<div class="testimonial_item">
-							<div class="col-sm-10 mr-sm-auto ml-sm-auto">
-								<p class="text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-
-								<div class="test_authour m-top-30">
-									<h6 class="text-white m-bottom-20">JOHN DOE - THEMEFOREST USER</h6>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-						</div>
-						<div class="testimonial_item">
-							<div class="col-sm-10 mr-sm-auto ml-sm-auto">
-								<p class="text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-
-								<div class="test_authour m-top-30">
-									<h6 class="text-white m-bottom-20">JOHN DOE - THEMEFOREST USER</h6>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<!--End off row-->
-			</div>
-			<!--End off container -->
-		</section>
-		<!--End off Testimonial section -->
-
-
-		<!--Pricing Section-->
-		<section id="pricing" class="pricing lightbg">
-			<div class="container">
-				<div class="row">
-					<div class="main_pricing">
-						<div class="col-md-8 ml-md-auto mr-md-auto">
-							<div class="head_title text-center">
-								<h2>OUR PRICING</h2>
-								<div class="separator_auto"></div>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-12">
-						<div class="pricing_item">
-							<div class="pricing_head p-top-30 p-bottom-100 text-center">
-								<h3 class="text-uppercase">STARTER</h3>
-							</div>
-							<div class="pricing_price_border text-center">
-								<div class="pricing_price">
-									<h3 class="text-white">$19</h3>
-									<p class="text-white">per month</p>
-								</div>
-							</div>
-
-							<div class="pricing_body bg-white p-top-110 p-bottom-60">
-								<ul>
-									<li><i class="fa fa-check-circle text-primary"></i> <span>10</span> user</li>
-									<li class="disabled"><i class="fa fa-times-circle"></i> Unlimited Bandwidth</li>
-									<li class="disabled"><i class="fa fa-times-circle"></i> Full Statistics</li>
-
-								</ul>
-								<div class="pricing_btn text-center m-top-40">
-									<a href="" class="btn btn-primary">CHOOSE PLAN</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End off col-md-4 -->
-
-					<div class="col-md-4 col-sm-12">
-						<div class="pricing_item sm-m-top-30">
-							<div class="pricing_top_border"></div>
-							<div class="pricing_head p-top-30 p-bottom-100 text-center">
-								<h3 class="text-uppercase">PREMIUM</h3>
-							</div>
-							<div class="pricing_price_border text-center">
-								<div class="pricing_price">
-									<h3 class="text-white">$39</h3>
-									<p class="text-white">per month</p>
-								</div>
-							</div>
-
-							<div class="pricing_body bg-white p-top-110 p-bottom-60">
-								<ul>
-									<li><i class="fa fa-check-circle text-primary"></i> <span>50</span> user</li>
-									<li><i class="fa fa-check-circle text-primary"></i> Unlimited Bandwidth</li>
-									<li class="disabled"><i class="fa fa-times-circle"></i> Full Statistics</li>
-								</ul>
-								<div class="pricing_btn text-center m-top-40">
-									<a href="" class="btn btn-primary">CHOOSE PLAN</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End off col-md-4 -->
-
-					<div class="col-md-4 col-sm-12">
-						<div class="pricing_item sm-m-top-30">
-							<div class="pricing_head p-top-30 p-bottom-100 text-center">
-								<h3 class="text-uppercase">bUSINESS</h3>
-							</div>
-							<div class="pricing_price_border text-center">
-								<div class="pricing_price">
-									<h3 class="text-white">$99</h3>
-									<p class="text-white">per month</p>
-								</div>
-							</div>
-
-							<div class="pricing_body bg-white p-top-110 p-bottom-60">
-								<ul>
-									<li><i class="fa fa-check-circle text-primary"></i> Unlimited Users</li>
-									<li><i class="fa fa-check-circle text-primary"></i> Unlimited Bandwidth</li>
-									<li><i class="fa fa-check-circle text-primary"></i> Full Statistics</li>
-								</ul>
-								<div class="pricing_btn text-center m-top-40">
-									<a href="" class="btn btn-primary">CHOOSE PLAN</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End off col-md-4 -->
-				</div>
-				<!--End off row-->
-			</div>
-			<!--End off container -->
-		</section>
-		<!--End off Pricing section -->
-
-
-
-		<!--client brand section-->
-		<section id="cbrand" class="cbrand">
-			<div class="container">
-				<div class="row">
-					<div class="main_cbrand text-center roomy-100">
-						<div class="col-md-2 col-sm-4 col-6">
-							<div class="cbrand_item m-bottom-10">
-								<a href=""><img src="/assets/images/clients/1.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div class="col-md-2 col-sm-4 col-6">
-							<div class="cbrand_item m-bottom-10">
-								<a href=""><img src="/assets/images/clients/2.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div class="col-md-2 col-sm-4 col-6">
-							<div class="cbrand_item m-bottom-10">
-								<a href=""><img class="" src="/assets/images/clients/5.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div class="col-md-2 col-sm-4 col-6">
-							<div class="cbrand_item m-bottom-10">
-								<a href=""><img src="/assets/images/clients/4.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div class="col-md-2 col-sm-4 col-6">
-							<div class="cbrand_item m-bottom-10">
-								<a href=""><img src="/assets/images/clients/3.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div class="col-md-2 col-sm-4 col-6">
-							<div class="cbrand_item m-bottom-10">
-								<a href=""><img src="/assets/images/clients/1.jpg" alt="" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- End off row -->
-			</div>
-			<!-- End off container -->
-		</section>
-		<!-- End off Cbrand section -->
-
-
-		<!--Subscribe section-->
-		<section id="subscribe" class="subscribe roomy-100 fix">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="main_subscribe text-center">
-						<div class="col-sm-8 mr-sm-auto ml-sm-auto">
-							<h2 class="text-white">SUBSCRIBE US</h2>
-							<p class="m-top-30 text-white">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
-						</div>
-						<div class="row justify-content-md-center">
-							<div class="col-sm-10 col-10 ml-auto">
-								<div class="subscribe_btns m-top-40">
-									<form class="form-inline">
-										<div class="form-control">
-											<input type="email" class="form-control-label" id="inputEmail2" placeholder="Email Address">
-										</div>
-										<button type="submit" class="btn btn-primary">SUBSCRIBE</button>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End off row -->
-			</div>
-			<!--End off container -->
-		</section>
-		<!-- End off Impress section-->
-
-
-
-		<!--Blog Section-->
-		<section id="blog" class="blog">
-			<div class="container">
-				<div class="row">
-					<div class="main_blog text-center roomy-100">
-						<div class="col-sm-8 mr-sm-auto ml-sm-auto">
-							<div class="head_title text-center">
-								<h2>RECENT BLOGS</h2>
-								<div class="separator_auto"></div>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-							</div>
-						</div>
-
-						<div class="row">
-
-							<div class="col-md-4">
-								<div class="blog_item m-top-20">
-									<div class="blog_item_img">
-										<img src="/assets/images/Blog/1.jpg" alt="" />
-									</div>
-									<div class="blog_text roomy-40">
-										<h6>PLEASUARE WITHOUT CONSCIENCE</h6>
-										<p><em><a href="">May 15, 2016</a> /<a href="">admin</a>/<a href=""> Co-working</a></em></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="blog_item m-top-20">
-									<div class="blog_item_img">
-										<img src="/assets/images/Blog/2.jpg" alt="" />
-									</div>
-									<div class="blog_text roomy-40">
-										<h6>PLEASUARE WITHOUT CONSCIENCE</h6>
-										<p><em><a href="">May 15, 2016</a> /<a href="">admin</a>/<a href=""> Co-working</a></em></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="blog_item m-top-20">
-									<div class="blog_item_img">
-										<img src="/assets/images/Blog/3.jpg" alt="" />
-									</div>
-									<div class="blog_text roomy-40">
-										<h6>PLEASUARE WITHOUT CONSCIENCE</h6>
-										<p><em><a href="">May 15, 2016</a> /<a href="">admin</a>/<a href=""> Co-working</a></em></p>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-				<!--End off row -->
-			</div>
-			<!--End off container -->
-		</section>
-		<!-- End off Blog section-->
-
-
-
-		<!--Maps Section-->
-		<div class="main_maps text-center fix">
-			<div class="overlay"></div>
-			<div class="maps_text">
-				<h3 class="text-white" onclick="showmap()">FIND US ON THE MAP <i class="fa fa-angle-down"></i></h3>
-				<div id="map_canvas" class="mapheight"></div>
-			</div>
-		</div>
-		<!-- End off Maps Section-->
-
-
-
-		<!--Contact Us Section-->
-		<section id="contact" class="contact bg-mega fix">
-			<div class="container">
-				<div class="row">
-					<div class="main_contact roomy-100 text-white">
-						<div class="col-md-4">
-							<div class="rage_widget">
-								<div class="widget_head">
-									<h3 class="text-white">RAGE</h3>
-									<div class="separator_small"></div>
-								</div>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-
-								<div class="widget_socail m-top-30">
-									<ul class="list-inline-item">
-										<li><a href=""><i class="fa fa-facebook"></i></a></li>
-										<li><a href=""><i class="fa fa-twitter"></i></a></li>
-										<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-										<li><a href=""><i class="fa fa-vimeo"></i></a></li>
-										<li><a href=""><i class="fa fa-instagram"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-8 sm-m-top-30">
-							<form class="" action="subcribe.php">
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="form-group">
-											<input id="first_name" name="first_name" type="text" placeholder="Name" class="form-control" required="">
-										</div>
-									</div>
-
-									<div class="col-sm-6">
-										<div class="form-group">
-											<input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
-										</div>
-									</div>
-
-									<div class="col-sm-12">
-										<div class="form-group">
-											<textarea class="form-control" rows="6" placeholder="Message"></textarea>
-										</div>
-										<div class="form-group text-center">
-											<a href="" class="btn btn-primary">SEND MESSAGE</a>
-										</div>
-									</div>
-
-								</div>
-
-							</form>
-						</div>
-					</div>
-				</div>
-				<!--End off row -->
-			</div>
-			<!--End off container -->
-		</section>
-		<!--End off Contact Section-->
-
-
-		<!-- scroll up-->
-		<div class="scrollup">
-			<a href="#"><i class="fa fa-chevron-up"></i></a>
-		</div>
-		<!-- End off scroll up -->
-
-
-		<footer id="footer" class="footer bg-black">
-			<div class="container">
-				<div class="row">
-					<div class="main_footer text-center p-top-40 p-bottom-30">
-						<p class="wow fadeInRight" data-wow-duration="1s">
-							Made with
-							<i class="fa fa-heart"></i> by
-							<a target="_blank" href="https://bootstrapthemes.co">Bootstrap Themes</a> 2016. All Rights Reserved
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-
-
-
-	</div>
-
-	<!-- JS includes -->
-
-	<script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
-	<script src="/assets/js/vendor/popper.min.js"></script>
-	<script src="/assets/js/vendor/bootstrap.min.js"></script>
-
-	<script src="/assets/js/jquery.magnific-popup.js"></script>
-	<script src="/assets/js/jquery.easing.1.3.js"></script>
-	<script src="/assets/js/slick.min.js"></script>
-	<script src="/assets/js/jquery.collapse.js"></script>
-	<script src="/assets/js/bootsnav.js"></script>
-
-
-	<!-- paradise slider js -->
-
-
-	<script src="http://maps.google.com/maps/api/js?key=AIzaSyD_tAQD36pKp9v4at5AnpGbvBUsLCOSJx8"></script>
-	<script src="/assets/js/gmaps.min.js"></script>
-
-	<script>
-		function showmap() {
-			var mapOptions = {
-				zoom: 8,
-				scrollwheel: false,
-				center: new google.maps.LatLng(-34.397, 150.644),
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-			$('.mapheight').css('height', '350');
-			$('.maps_text h3').hide();
-		}
-
-	</script>
-
-
-
-
-
-	<script src="/assets/js/plugins.js"></script>
-	<script src="/assets/js/main.js"></script>
-
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">$240.00</li>
+                            </ul>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gym Weight</a>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                            </p>
+                            <p class="text-muted">Reviews (24)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="shop-single.html">
+                            <img src="/assets/img/feature_prod_02.jpg" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">$480.00</li>
+                            </ul>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
+                            <p class="card-text">
+                                Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
+                            </p>
+                            <p class="text-muted">Reviews (48)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="shop-single.html">
+                            <img src="/assets/img/feature_prod_03.jpg" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">$360.00</li>
+                            </ul>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Summer Addides Shoes</a>
+                            <p class="card-text">
+                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
+                            </p>
+                            <p class="text-muted">Reviews (74)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Featured Product -->
+
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            123 Consectetur at ligula 10660
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
+                        <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
+                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
+                        <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
+                        <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
+                        <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
+                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Home</a></li>
+                        <li><a class="text-decoration-none" href="#">About Us</a></li>
+                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
+                        <li><a class="text-decoration-none" href="#">FAQs</a></li>
+                        <li><a class="text-decoration-none" href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="subscribeEmail">Email address</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                        <div class="input-group-text btn-success text-light">Subscribe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2021 Company Name 
+                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="/assets/js/jquery-1.11.0.min.js"></script>
+    <script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/templatemo.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <!-- End Script -->
 </body>
 
 </html>

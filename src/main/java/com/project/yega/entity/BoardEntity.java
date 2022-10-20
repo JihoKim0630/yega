@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import lombok.Data;
 
 @Data
@@ -18,6 +20,8 @@ public class BoardEntity {
 
     private String boardNm;		//게시판명
     private String boardTypCd;  //게시판유형코드
+    
+    @CreatedDate
     private String createDt;	//게시판생성일시
     private String useYn;		//사용여부
     private String orderSeq;	//정렬순서

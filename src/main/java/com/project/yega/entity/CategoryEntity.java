@@ -19,5 +19,4 @@ public class CategoryEntity {
     private String categoryNm;
     private int categoryLvl;
 
-
 }
