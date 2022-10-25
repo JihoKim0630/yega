@@ -46,18 +46,22 @@ public class BoardContentEntity {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	private String contentSub;	//글제목 
-    private String authorId;  	//작성자아이디
+	private String contentSub;		//글제목 
+    private String authorId;  		//작성자아이디
+    private String authorEmail;  	//작성자이메일
+    private String authorPhoneNum;  //작성자연락처
     @CreationTimestamp
     private LocalDateTime createDt;	//생성일시
     @UpdateTimestamp
     private LocalDateTime updateDt;	//생성일시
-    private String alarmYn;		//공지여부
-    private String displayYn;	//전시여부
-    private String lockYn;		//비밀글여부
-    private String contentPw;	//글비밀번호
-    private String contentSbst;	//글내용
+    private String alarmYn;			//공지여부
+    private String displayYn;		//전시여부
+    private String lockYn;			//비밀글여부
+    private String contentPw;		//글비밀번호
+    private String contentSbst;		//글내용
+    
     @ColumnDefault("0") 
-    private int lookUpCnt;		//조회수
+    @Column(name="LOOK_UP_CNT", nullable = false, length = 10)
+    private int lookUpCnt;			//조회수
 
 }

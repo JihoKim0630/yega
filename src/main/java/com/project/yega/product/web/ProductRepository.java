@@ -1,7 +1,9 @@
 package com.project.yega.product.web;
 
-import com.project.yega.entity.ProductEntity;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ProductRepository extends CrudRepository<ProductEntity,Integer> {
+import com.project.yega.entity.ProductEntity;
+@Repository
+public interface ProductRepository extends JpaRepository<ProductEntity,Integer> {
 }

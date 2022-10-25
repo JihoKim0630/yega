@@ -30,7 +30,7 @@
 									<tbody>
 										<c:forEach var="i" items="${contentList}" varStatus="vs">
 										       <%-- <c:set var="weekNum" value="${(i+startWeekDay-2)%7}"></c:set> --%>
-										     <tr>
+										     <tr name = "conRow" data-content-seq = "${vs.current.id}">
 												<td class="py-1">${vs.index+1}</td>
 												<td>${vs.current.contentSub}</td>
 												<td>
@@ -55,7 +55,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<button class="btn btn-success btn-lg px-3" id = "goToEnqury">문의하기</button>
+				<button class="btn btn-success btn-lg px-3" id = "goToEnquiry">문의하기</button>
 			</div>
 		</div>
 	</div>
@@ -63,4 +63,18 @@
 </body>
 <script>
  
+ const boardId = '1';
+$( document ).ready(function() {
+    
+});
+
+$('tr[name=conRow]').on('click',function(){
+	var contentSeq = $(this).data('contentSeq'); //게시글 아이디
+	location.href="enquiryDtl/" + contentSeq;
+	
+});
+
+$('#goToEnquiry').on('click',function(){
+	location.href="enquiry?boardId=" + boardId;
+});
 </script>

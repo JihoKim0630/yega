@@ -1,9 +1,8 @@
+<%@include file="/WEB-INF/views/common/tagLib.jsp" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!doctype html>
 <html lang="en">
 <head>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <meta charset="UTF-8">
 <title>Zay Shop eCommerce HTML CSS Template</title>
     <meta charset="utf-8">
@@ -46,7 +45,7 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            <a class="navbar-brand text-success logo h1 align-self-center" id="logo" href="#">
                 <img class="img-logo" src="/assets/img/logo_yega.png" alt="">
             </a>
 
@@ -58,16 +57,16 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" id = "homeBtn" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" id = "enquiryBtn" href="#">문의사항</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
+                            <a class="nav-link" id = "shopBtn" href="#">Shop</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" id = "contactBtn" href="#">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -105,3 +104,37 @@
     <script src="/assets/js/custom.js"></script>
     <!-- End Script -->
 </body>
+<script>
+$( document ).ready(function() {
+    
+});
+
+$('#logo' ).on('click', function() {
+	var url = window.location.protocol + "//" + window.location.host + "/";
+	location.href=url+"main/hi";
+    
+});
+$('#homeBtn' ).on('click', function() {
+	var url = window.location.protocol + "//" + window.location.host + "/";
+	location.href=url+"main/hi";
+    
+});
+
+$('#enquiryBtn' ).on('click', function() {
+	var url = window.location.protocol + "//" + window.location.host + "/";
+	location.href=url+"board/enquiryList?boardId=1";
+});
+
+$('#shopBtn' ).on('click', function() {
+	var url = window.location.protocol + "//" + window.location.host + "/";
+	location.href=url+"product/shop";
+    
+});
+
+$('#contactBtn' ).on('click', function() {
+	var url = window.location.protocol + "//" + window.location.host + "/";
+	location.href=url+"board/enquiryList?boardId=1";
+    
+});
+
+</script>
