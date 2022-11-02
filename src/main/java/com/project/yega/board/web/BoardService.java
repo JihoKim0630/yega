@@ -1,11 +1,16 @@
 package com.project.yega.board.web;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.project.yega.board.dto.BoardContentDTO;
 import com.project.yega.board.dto.EnquiryInDto;
 import com.project.yega.entity.BoardContentEntity;
 import com.project.yega.entity.BoardEntity;
@@ -38,14 +43,14 @@ public class BoardService {
 	/**    
 	 * board아이디로 해당 게시판의 게시글 전체를 가져오는 메소드  
 	 * @param boardId    
-	 * @return List<BoardContentEntity>   
+	 * @return List<BoardContentDTO>   
 	 * @ 작성자 KJH    
 	 * @ version 1.0    
 	 * */
-	public List<BoardContentEntity> getBoardContentList(int boardId) {
-    	List<BoardContentEntity> contentsList = boardContentRepository.findAll();
-    	
-    	return contentsList;
+	public Page<BoardContentEntity> getBoardContentList(int boardId, Pageable pageable) {
+    	Page<BoardContentEntity> entity = boardContentRepository.findByBoardId(boardId, pageable);
+    	//Page<BoardContentDTO> contentsList = Arrays.asList(modelmapper.map(entity,BoardContentDTO[].class));
+    	return entity;
     }
 	
 	/**    
@@ -68,7 +73,7 @@ public class BoardService {
 	 * @ 작성자 KJH    
 	 * @ version 1.0    
 	 * */
-	public int insertContents(EnquiryInDto inputDto) {
+	public ResponseEntity<BoardContentEntity> insertContents(EnquiryInDto inputDto) {
 
     	//0.받아온 boardId로 Board 가져오기
     	BoardEntity board = getBoard(inputDto.getBoardId());
@@ -84,7 +89,19 @@ public class BoardService {
     	
     	//3. Repository에게 Entity를 처리하도록,,
     	boardContentRepository.save(boardContent);
-    	return 1;//나중에 Map<String,String>리턴으로 바꿔서 에러처리,예외처리 하기..
+    	return ResponseEntity.ok(boardContentRepository.save(boardContent));//나중에 Map<String,String>리턴으로 바꿔서 에러처리,예외처리 하기..
     }
+	/**    
+	 * 글 조회수를 증가시키는 메소드  
+	 * @param <T>
+	 * @param boardId    
+	 * @return List<BoardContentEntity>   
+	 * @ 작성자 KJH    
+	 * @ version 1.0    
+	 * */
+	public ResponseEntity<BoardContentEntity> increaseLookCnt(int contentSeq) {
+		//boardContentRepository.updateLookupCnt(inputDTO.getId());
+		return ResponseEntity.ok(boardContentRepository.updateLookupCnt(contentSeq));//나중에 Map<String,String>리턴으로 바꿔서 에러처리,예외처리 하기..
+	}
 
 }

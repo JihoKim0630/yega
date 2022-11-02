@@ -10,5 +10,5 @@ import com.project.yega.entity.ProdImgEntity;
 public interface ProdImgRepository extends JpaRepository<ProdImgEntity,Integer> {
 
 	List<ProdImgEntity> findByProduct_Id(int prodId);
-	//List<ProdImgEntity> findByProduct_IdAndMainImgYn(int prodId, String yn);
+	List<ProdImgEntity> findByProduct_IdAndMainImgYn(int prodId, String mainImgYn);
 }

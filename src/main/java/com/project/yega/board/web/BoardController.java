@@ -1,7 +1,10 @@
 package com.project.yega.board.web;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,20 +29,49 @@ public class BoardController {
 
 	private final BoardService boardService;
 
-	//private Logger logger = LoggerFactory.getLogger(LoggingRunner.class);
 	 
 	/*
-	 * 문의사항 게시판
+	 * 게시판
 	 */
-	@GetMapping(value ="/enquiryList")
-     public String getEnquiryList(@RequestParam("boardId") int boardId, Model model) {
-    	 
-     	List<BoardContentEntity> contentList = boardService.getBoardContentList(boardId);
-     	model.addAttribute("contentList", contentList);
+	@GetMapping(value ="/boardList")
+     public String geBoardList(@RequestParam("boardId") int boardId, Model model
+    		 				, @PageableDefault(sort = "id", direction = Direction.DESC, size = 10) Pageable pageable) {
+		String boardNm = boardService.getBoard(boardId).getBoardNm();
+		String boardEngNm = boardService.getBoard(boardId).getBoardEngNm();
+		Page<BoardContentEntity> contentList = boardService.getBoardContentList(boardId, pageable);
+     	
+     	/*페이징처리 관련 S*/
+     	int startPage = Math.max(1, contentList.getPageable().getPageNumber()/10*10+1);
+     	int endPage = Math.min(contentList.getTotalPages(), startPage+9);
+     	boolean hasNext = true;
+     	boolean hasPrev = true;
+     	if(startPage <=1) {
+     		hasPrev = false;
+     	}
+     	if(endPage >= contentList.getTotalPages()) {
+     		hasNext = false;
+     	}
+     	model.addAttribute("startPage", startPage);
+     	model.addAttribute("endPage", endPage);
+     	model.addAttribute("currPage", contentList.getPageable().getPageNumber());
+     	model.addAttribute("hasPrev", hasPrev);
+     	model.addAttribute("hasNext", hasNext);
+     	/*페이징처리 관련 E*/
+     	
+     	model.addAttribute("contentList", contentList.getContent());
+     	model.addAttribute("boardNm", boardNm);
+     	model.addAttribute("boardId", boardId);
 
-     	log.debug("========>contentList\n" + contentList);
+     	log.debug("startPage : " + startPage);
+     	log.debug("endPage : " + endPage);
+     	log.debug("hasPrev : " + hasPrev);
+     	log.debug("hasNext : " + hasNext);
+     	log.debug("contentList.getPageable().getPageNumber() : " + contentList.getPageable().getPageNumber());
+     	log.debug("contentList.getTotalPages() : " + contentList.getTotalPages());
      
-    	 return "enquiry/enquiryList";
+     	String rtn = "board/"+boardEngNm+"List";
+//    	return rtn;
+    	return "board/enquiryList";
      }
 
      /*
@@ -47,9 +79,9 @@ public class BoardController {
       */
      @GetMapping(value="/enquiry" )
      public String enquiryForm(@RequestParam("boardId") int boardId, Model model){
-    	 model.addAttribute("boardId",boardId);
+    	model.addAttribute("boardId",boardId);
      	
-     	return "enquiry/enquiryForm";
+     	return "board/enquiryForm";
      }
      
      /*
@@ -64,12 +96,12 @@ public class BoardController {
 
       	log.debug("========>content\n" + content);
       
-     	 return "enquiry/enquiryDtl";
+     	 return "board/enquiryDtl";
       }
       
 
      /*
-      * 문의사항 게시글 create API
+      * 게시글 create API
       */
      @PostMapping(value ="/insertContents")
      @ResponseBody
@@ -77,6 +109,18 @@ public class BoardController {
     	 
     	 log.debug("========inDTO : \n" + inputDto.toString());
     	 boardService.insertContents(inputDto);
+    	 
+    	 return null;
+     }
+     /*
+      * 조회수 증가 API
+      */
+     @GetMapping(value ="/updateLookCnt/{contentSeq}")
+     @ResponseBody
+     public <T> ResponseEntity<T> updateLookCnt(@PathVariable("contentSeq") int contentSeq) {
+    	 
+    	 log.debug("========contentSeq : \n" + contentSeq);
+    	 boardService.increaseLookCnt(contentSeq);
     	 
     	 return null;
      }

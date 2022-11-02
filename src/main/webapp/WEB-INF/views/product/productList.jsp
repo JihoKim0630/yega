@@ -12,36 +12,39 @@ var _testData;
 $( document ).ready(function() {
 	console.log("_rootCtgList 0> " +_rootCtgList);
 	console.log("_prodList 1> " +_prodList);
-//	initCtgList();
+	
+	$.each($('#rootCtgUl').children('li'), function(){
+		console.log($(this).attr('id'));
+		var pId = $(this).attr('id');
+		var ctgId = $('#'+pId).data('ctgId'); //해당 최상위 카테고리아이디
+		
+		getChildCtgList(ctgId);
+		
+	});
+
+	function setComma(num){
+		
+	console.log("setComma num : " +num);
+		return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	}
+	
     
 });
 
-var drawSubCtg = function(data){
-	var html = '';
-		html  	+=  '            		<li class="pb-3">                                                                                     '; 
-		html	+=  '                      <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">          '; 
-		html	+=  '                          Gender                                                                                     ';
-		html	+=  '                          <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>                                       ';
-		html	+=  '                      </a>                                                                                           ';
-		html	+=  '                      <ul class="collapse show list-unstyled pl-3">                                                  ';
-		html	+=  '                          <li><a class="text-decoration-none" href="#">Men</a></li>                                  ';
-		html	+=  '                          <li><a class="text-decoration-none" href="#">Women</a></li>                                ';
-		html	+=  '                      </ul>                                                                                          ';
-		html	+=  '                  </li>                                                                                              ';
-		html	+=	'			     <tr name = "conRow" data-content-seq = "${vs.current.id}">                                                 ';
-		html	+=	'					<td class="py-1">${vs.index+1}</td>                                                                         ';
-		html	+=	'					<td>${vs.current.contentSub}</td>                                                                           ';
-		html	+=	'					<td>                                                                                                        ';
-		html	+=	'						<!-- <div class="progress">                                                                               ';
-		html	+=	'							<div class="progress-bar bg-success" role="progressbar"                                                 ';
-		html	+=	'								style="width: 25%" aria-valuenow="25" aria-valuemin="0"                                               ';
-		html	+=	'								aria-valuemax="100"></div>                                                                            ';
-		html	+=	'						</div> -->                                                                                                ';
-		html	+=	'						${vs.current.createDt}                                                                                    ';
-		html	+=	'					</td>                                                                                                       ';
-		html	+=	'					<td>${vs.current.authorId}</td>                                                                             ';
-		html	+=	'					<td>${vs.current.lookUpCnt}</td>                                                                            ';
-	};
+/*
+ *	2단계 카테고리 그리기
+ *
+ */
+var drawSubCtg = function(data, oppCtgId){
+	
+    var sHtml='';
+    $.each(data, function(index, item){
+    	console.log(item);
+    	sHtml += '<li><a class="text-decoration-none" href="#">'+item.ctgNm +'</a></li>'
+    	
+    });
+	$('#childFor_'+oppCtgId).empty().append(sHtml);
+};
 
 /*
  *	상위 카테고리아이디로 하위 카테고리 리스트 받아오는 함수 
@@ -60,14 +63,14 @@ function getChildCtgList(oppCtgId){
 		.success(function(data) {
 			console.log("childList : " + JSON.stringify(data));
 			_testData = data;
-			//drawSubCtg(data);
+			drawSubCtg(data, oppCtgId);
 			
 		})
 		.fail(function(xhr, status, errorThrown) {
 		    alert("오류 발생..");
 		})
 		.always(function(xhr, status) {
-			//alert("글이 등록되었습니다.");
+			
 		});
 };
 
@@ -96,16 +99,15 @@ function getChildCtgList(oppCtgId){
 
             <div class="col-lg-3">
                 <h1 class="h2 pb-4">Category</h1>
-                <ul class="list-unstyled templatemo-accordion">
-                	<c:forEach items="${rootCtgList}" var = "item">
-	               		<li class="pb-3">
+                <ul class="list-unstyled templatemo-accordion" id="rootCtgUl">
+                	<c:forEach items="${rootCtgList}" var = "item" varStatus="vs">
+	               		<li class="pb-3" id="rootCtg_${item.id}" data-ctg-id="${item.id }">
 	                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-	                            ${item.ctgNm }
+	                             ${item.ctgNm }
 	                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
 	                        </a>
 	                        <ul class="collapse show list-unstyled pl-3" id="childFor_${item.id}">
-	                            <li><a class="text-decoration-none" href="#">Men</a></li>
-	                            <li><a class="text-decoration-none" href="#">Women</a></li>
+	                            
 	                        </ul>
 	                    </li>
                 	</c:forEach>
@@ -114,46 +116,25 @@ function getChildCtgList(oppCtgId){
 
             <div class="col-lg-9">
                 <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-inline shop-top-menu pb-3 pt-1">
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">All</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">Men's</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 pb-4">
-                        <div class="d-flex">
-                            <select class="form-control">
-                                <option>Featured</option>
-                                <option>A to Z</option>
-                                <option>Item</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                	<c:forEach items="${prodList}" var = "item">
+                	<c:forEach items="${prodList}" var = "item" varStatus="vs">
 	                    <div class="col-md-4">
 	                        <div class="card mb-4 product-wap rounded-0">
 	                            <div class="card rounded-0">
-	                                <img class="card-img rounded-0 img-fluid" src="assets/img/shop_01.jpg">
+	                                <img class="card-img rounded-0 img-fluid" src="${item.prodImgList[0].imgPath}">
 	                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
 	                                    <ul class="list-unstyled">
-	                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-	                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-	                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+	                                    	<!-- 좋아요버튼(하트) -->
+	                                        <!-- <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li> -->
+	                                    	<!-- 자세히보기 -->
+	                                        <li><a class="btn btn-success text-white mt-2" href="/product/detail/${item.id }"><i class="far fa-eye"></i></a></li>
+	                                    	<!-- 카트 -->
+	                                        <!-- <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li> -->
 	                                    </ul>
 	                                </div>
 	                            </div>
 	                            <div class="card-body">
-	                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-	                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+	                                <a href="shop-single.html" class="h3 text-decoration-none">${item.prodNm}</a>
+	                                <!-- <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
 	                                    <li>M/L/X/XL</li>
 	                                    <li class="pt-2">
 	                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
@@ -162,8 +143,8 @@ function getChildCtgList(oppCtgId){
 	                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
 	                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
 	                                    </li>
-	                                </ul>
-	                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+	                                </ul> -->
+	                               <!--  <ul class="list-unstyled d-flex justify-content-center mb-1">
 	                                    <li>
 	                                        <i class="text-warning fa fa-star"></i>
 	                                        <i class="text-warning fa fa-star"></i>
@@ -171,124 +152,14 @@ function getChildCtgList(oppCtgId){
 	                                        <i class="text-muted fa fa-star"></i>
 	                                        <i class="text-muted fa fa-star"></i>
 	                                    </li>
-	                                </ul>
-	                                <p class="text-center mb-0">$250.00</p>
+	                                </ul> -->
+	                                <c:set var="commaPrice" value="javascript:setComma(${item.prodPrice});" />
+	                                <%-- <p class="text-center mb-0">${item.prodPrice}</p> --%>
+	                                <p class="text-center mb-0">10,000원</p>
 	                            </div>
 	                        </div>
 	                    </div>
 	                </c:forEach>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/shop_02.jpg">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>M/L/X/XL</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$250.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/shop_08.jpg">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>M/L/X/XL</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$250.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/shop_09.jpg">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>M/L/X/XL</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$250.00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">
                         <li class="page-item disabled">

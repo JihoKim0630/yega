@@ -1,8 +1,5 @@
 package com.project.yega.board.dto;
 
-import com.project.yega.entity.BoardContentEntity;
-import com.project.yega.entity.BoardEntity;
-
 import lombok.Data;
 
 
@@ -22,20 +19,4 @@ public class EnquiryInDto {
     private String contentSbst;	//글내용
     private int lookUpCnt;		//조회수
     
-    public BoardContentEntity toEntity() {
-    	//boardID로 BoardEntity를 가져와서 2번쨰 파람에 셋팅
-    	
-    	return new BoardContentEntity(
-    			 0,
-    			 null,
-    			contentSub,	
-    			  authorId,  	
-    			  alarmYn,		
-    			  displayYn,	
-    			  lockYn,		
-    			  contentPw,	
-    			  contentSbst,
-    			lookUpCnt	);
-    }
-
 }

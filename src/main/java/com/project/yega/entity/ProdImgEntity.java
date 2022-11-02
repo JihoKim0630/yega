@@ -1,5 +1,7 @@
 package com.project.yega.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import lombok.Data;
 
@@ -26,18 +30,25 @@ public class ProdImgEntity {
     @JoinColumn(name = "PRODUCT_ID")
     private ProductEntity product;	//카테고리 ID (외래키)
     
-    @Column(name="ORIGIN_IMG_NM")
+    @Column(name="ORIGIN_IMG_NM", nullable = false, length = 500)
     private String originImgNm;			//실제이미지명
     
-    @Column(name="SERVER_IMG_NM")
+    @Column(name="SERVER_IMG_NM", nullable = false, length = 500)
     private String serverImgNm; 		//서버이미지명()
     
-    @Column(name="IMG_PATH")
+    @Column(name="IMG_PATH", nullable = false, length = 1000)
     private String imgPath; 			//서버이미지경로
     
-    @Column(name="MAIN_IMG_YN")
-    //@ColumnDefault("N")
+    @ColumnDefault("N")
+    @Column(name="MAIN_IMG_YN", nullable = false, length = 1)
     private String mainImgYn; 		//메인이미지여부(상품게시판에 노출)
+    
+    @CreatedDate
+    @Column(name="CREATE_DT")
+    private LocalDateTime createDt;	//생성일시
+    @LastModifiedDate
+    @Column(name="UPDATE_DT")
+    private LocalDateTime updateDt;	//수정일시
 
     
 	/*

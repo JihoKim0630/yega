@@ -2,6 +2,7 @@ package com.project.yega.category.web;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.yega.category.dto.CategoryDTO;
-import com.project.yega.entity.CategoryEntity;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,10 @@ public class CategoryController {
     @GetMapping("/getCategoryByLvl")
     public List<CategoryDTO> getCategoryByLvl(@RequestParam("ctgLvl")int ctgLvl, Model model){
     	List<CategoryDTO> ctgList = categoryService.getCategoryByLvl(ctgLvl);
-    	model.addAttribute("ctgList", ctgList);
+    	
+    	
+    	model.addAttribute("ctgList2", ctgList);
+    	model.addAttribute("ctgList", ResponseEntity.ok().body(ctgList));
     	
 //    	return "product/productList";
     	return null;
@@ -42,9 +45,9 @@ public class CategoryController {
     
     @GetMapping("/getChildCtg")
     @ResponseBody
-    public List<CategoryDTO> getChildCtg(@RequestParam("oppCtgId")int oppCtgId, Model model){
+    public ResponseEntity<List<CategoryDTO>> getChildCtg(@RequestParam("oppCtgId")int oppCtgId, Model model){
     	List<CategoryDTO> childCtgList = categoryService.getCategoryByOppCtgId(oppCtgId);
     	log.debug(childCtgList.toString());
-    	return childCtgList;
+    	return ResponseEntity.ok().body(childCtgList);
     }
 }

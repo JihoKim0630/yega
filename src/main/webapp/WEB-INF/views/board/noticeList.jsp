@@ -11,7 +11,7 @@
 				<div class="col-lg-12 grid-margin stretch-card">
 					<div class="card">
 						<div class="card-body">
-							<h4 class="card-title">문의사항</h4>
+							<h4 class="card-title">${boardNm }</h4>
 							<%-- <p class="card-description">
 								Add class
 								<code>.table-striped</code>
@@ -54,9 +54,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<!-- <div class="row">
 				<button class="btn btn-success btn-lg px-3" id = "goToEnquiry">문의하기</button>
-			</div>
+			</div> -->
 		</div>
 	</div>
 

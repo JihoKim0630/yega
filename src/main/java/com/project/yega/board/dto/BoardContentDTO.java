@@ -8,9 +8,10 @@ import lombok.Data;
 
 //문의사항 DTO
 @Data
-public class EnquiryOutDto {
+public class BoardContentDTO {
     private int id;
     private int boardId;		//게시판 아이디
+    private String boardNm;		//게시판이름
     private String contentSub;	//글제목
     private String authorId;  	//작성자아이디
     private String phoneNumber; //전화번호
@@ -21,21 +22,5 @@ public class EnquiryOutDto {
     private String contentPw;	//글비밀번호
     private String contentSbst;	//글내용
     private int lookUpCnt;		//조회수
-    
-    public BoardContentEntity toEntity() {
-    	//boardID로 BoardEntity를 가져와서 2번쨰 파람에 셋팅
-    	
-    	return new BoardContentEntity(
-    			 0,
-    			 null,
-    			contentSub,	
-    			  authorId,  	
-    			  alarmYn,		
-    			  displayYn,	
-    			  lockYn,		
-    			  contentPw,	
-    			  contentSbst,
-    			lookUpCnt	);
-    }
 
 }

@@ -74,7 +74,7 @@ $('#insertCon').on('click',function(){
 	})
 	.success(function(json) {
 		alert("글이 등록되었습니다.");
-		location.href="enquiryList?boardId=" + boardId;
+		location.href="boardList?boardId=" + boardId;
 	})
 	.fail(function(xhr, status, errorThrown) {
 	    alert("오류 발생..");

@@ -40,6 +40,6 @@ $( document ).ready(function() {
 
 $('#toList').on('click',function(){
 	console.log('목록으로 가자');
-	location.href="../enquiryList?boardId="+ ${boardId};
+	location.href="../boardList?boardId="+ ${boardId};
 });
 </script>

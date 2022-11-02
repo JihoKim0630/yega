@@ -14044,12 +14044,12 @@ input[type="button"].btn-block {
   color: #495057;
 }
 
-.pagination, .jsgrid .jsgrid-pager {
+/* .pagination, .jsgrid .jsgrid-pager {
   display: flex;
   padding-left: 0;
   list-style: none;
   border-radius: 8px;
-}
+} 
 
 .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a,
 .jsgrid .jsgrid-pager .jsgrid-pager-page a {
@@ -14153,7 +14153,7 @@ input[type="button"].btn-block {
 .pagination-sm .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child a, .jsgrid .jsgrid-pager .pagination-sm .jsgrid-pager-page:last-child a {
   border-top-right-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem;
-}
+}*/
 
 .badge {
   display: inline-block;
@@ -22008,7 +22008,7 @@ code {
   color: #010101;
   margin-bottom: 1.2rem;
   text-transform: capitalize;
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
@@ -28777,7 +28777,7 @@ div.tagsinput span.tag a {
 }
 
 /* Navbar */
-.navbar {
+/* .navbar {
   font-weight: 400;
   transition: background 0.25s ease;
   -webkit-transition: background 0.25s ease;
@@ -28786,8 +28786,8 @@ div.tagsinput span.tag a {
   -webkit-box-shadow: 0px 5px 21px -5px #CDD1E1;
   -moz-box-shadow: 0px 5px 21px -5px #CDD1E1;
   box-shadow: 0px 5px 21px -5px #CDD1E1;
-  /* Navbar color variations */
-}
+  Navbar color variations
+} */
 
 .sidebar-dark .navbar {
   box-shadow: none;

@@ -5,6 +5,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.yega.comn.JsonUtill;
+
 @Configuration
 public class AppConfig {
 	
@@ -18,4 +21,12 @@ public class AppConfig {
 		return new JSONArray();
 	}
 
+	@Bean
+	public ObjectMapper objectMapper() {
+		return new ObjectMapper();
+	}
+	@Bean
+	public JsonUtill jsonUtill() {
+		return new JsonUtill();
+	}
 }

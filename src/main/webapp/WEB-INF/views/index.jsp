@@ -132,10 +132,11 @@ https://templatemo.com/tm-559-zay-shop
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="container">
+             <img class="img-fluid" src="/assets/img/banner_img_01.jpg" alt="">
+                <!-- <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="/assets/img/banner_img_01.jpg" alt="">
+                           
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
@@ -151,7 +152,7 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="carousel-item">
                 <div class="container">

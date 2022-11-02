@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/templatemo.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+   
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
@@ -46,7 +46,7 @@
         <div class="container d-flex justify-content-between align-items-center">
 
             <a class="navbar-brand text-success logo h1 align-self-center" id="logo" href="#">
-                <img class="img-logo" src="/assets/img/logo_yega.png" alt="">
+                <img class="img-logo" src="/assets/img/logo_yega2.png" alt="">
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,17 +56,20 @@
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" id = "homeBtn" href="#">Home</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" id = "introduce" href="#">회사소개</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id = "shopBtn" href="#">제품소개</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id = "contactBtn" href="#">공지사항</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id = "enquiryBtn" href="#">문의사항</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id = "shopBtn" href="#">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id = "contactBtn" href="#">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -122,7 +125,7 @@ $('#homeBtn' ).on('click', function() {
 
 $('#enquiryBtn' ).on('click', function() {
 	var url = window.location.protocol + "//" + window.location.host + "/";
-	location.href=url+"board/enquiryList?boardId=1";
+	location.href=url+"board/boardList?boardId=1";
 });
 
 $('#shopBtn' ).on('click', function() {
@@ -133,7 +136,7 @@ $('#shopBtn' ).on('click', function() {
 
 $('#contactBtn' ).on('click', function() {
 	var url = window.location.protocol + "//" + window.location.host + "/";
-	location.href=url+"board/enquiryList?boardId=1";
+	location.href=url+"board/boardList?boardId=2";
     
 });
 
