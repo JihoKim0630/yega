@@ -12,6 +12,9 @@ import com.project.yega.entity.BoardContentEntity;
 @Repository
 public interface BoardContentRepository extends JpaRepository<BoardContentEntity,Integer> {
 	Page<BoardContentEntity> findByBoardId(int boardId, Pageable pageable);
+	Page<BoardContentEntity> findByContentSubContaining(String contentSub, Pageable pageable);
+	Page<BoardContentEntity> findByAuthorIdContaining(String AuthorId, Pageable pageable);
+	Page<BoardContentEntity> findByContentSbstContaining(String contentSbst, Pageable pageable);
 	
 	@Query(nativeQuery = true, value="UPDATE BOARD_CONTENT SET LOOK_UP_CNT = LOOK_UP_CNT+1 WHERE CONTENT_SEQ=:contentSeq")
 	BoardContentEntity updateLookupCnt(@Param("contentSeq") int contentSeq);

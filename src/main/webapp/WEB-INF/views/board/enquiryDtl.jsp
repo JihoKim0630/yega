@@ -13,16 +13,16 @@
                         <input type="text" class="form-control mt-1" id="authorId" name="authorId" value='${reqData.authorId}' disabled>
                     </div>
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputemail">이메일</label>
-                        <input type="text" class="form-control mt-1" id="phoneNumber" name="phoneNumber" value='${reqData.authorEmail}' disabled>
+                        <label for="authorPhoneNum">연락처</label>
+                        <input type="text" class="form-control mt-1" id="authorPhoneNum" name="authorPhoneNum" value='${reqData.authorPhoneNum}' disabled>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="inputsubject">제목</label>
+                    <label for="contentSub">제목</label>
                     <input type="text" class="form-control mt-1" id="contentSub" name="contentSub" value='${reqData.contentSub}' disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="inputmessage">문의사항</label>
+                    <label for="contentSbst">문의사항</label>
                     <textarea class="form-control mt-1" id="contentSbst" name="contentSbst" rows="20" disabled >${reqData.contentSbst}</textarea>
                 </div>
                 <div class="row">

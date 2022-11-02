@@ -1,17 +1,19 @@
 package com.project.yega.board.web;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Function;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.project.yega.board.dto.BoardContentDTO;
-import com.project.yega.board.dto.EnquiryInDto;
 import com.project.yega.entity.BoardContentEntity;
 import com.project.yega.entity.BoardEntity;
 
@@ -73,7 +75,7 @@ public class BoardService {
 	 * @ 작성자 KJH    
 	 * @ version 1.0    
 	 * */
-	public ResponseEntity<BoardContentEntity> insertContents(EnquiryInDto inputDto) {
+	public ResponseEntity<BoardContentEntity> insertContents(BoardContentDTO inputDto) {
 
     	//0.받아온 boardId로 Board 가져오기
     	BoardEntity board = getBoard(inputDto.getBoardId());
@@ -102,6 +104,29 @@ public class BoardService {
 	public ResponseEntity<BoardContentEntity> increaseLookCnt(int contentSeq) {
 		//boardContentRepository.updateLookupCnt(inputDTO.getId());
 		return ResponseEntity.ok(boardContentRepository.updateLookupCnt(contentSeq));//나중에 Map<String,String>리턴으로 바꿔서 에러처리,예외처리 하기..
+	}
+	
+	/**    
+	 * 글 조회수를 증가시키는 메소드  
+	 * @param <T>
+	 * @param boardId    
+	 * @return List<BoardContentEntity>   
+	 * @ 작성자 KJH    
+	 * @ version 1.0    
+	 * */
+	public Page<BoardContentEntity> searchContents(String serchCon, String sword, Pageable pageable) {
+		
+		Page<BoardContentEntity> list;
+			
+		if("1".equals(serchCon)) {//제목
+			list = boardContentRepository.findByContentSubContaining(sword ,pageable);
+		}else if("2".equals(serchCon)) {//작성자
+			list   = boardContentRepository.findByAuthorIdContaining(sword,pageable);
+		}else{//문의내용
+			list  = boardContentRepository.findByContentSbstContaining(sword,pageable);
+		}
+		
+		return list;//나중에 Map<String,String>리턴으로 바꿔서 에러처리,예외처리 하기..
 	}
 
 }

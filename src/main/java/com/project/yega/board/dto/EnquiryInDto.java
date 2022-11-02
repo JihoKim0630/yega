@@ -10,7 +10,7 @@ public class EnquiryInDto {
     private int boardId;		//게시판 아이디
     private String contentSub;	//글제목
     private String authorId;  	//작성자아이디
-    private String phoneNumber; //전화번호
+    private String authorPhoneNum; //전화번호
     private String createDt;	//생성일시
     private String alarmYn;		//공지여부
     private String displayYn;	//전시여부

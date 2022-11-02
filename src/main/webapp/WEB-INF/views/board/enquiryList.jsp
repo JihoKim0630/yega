@@ -15,17 +15,43 @@
 						<div class="card-body">
 							<div class="row">
 								<h4 class="card-title">${boardNm }</h4>
-								<%-- <p class="card-description">
-									Add class
-									<code>.table-striped</code>
-								</p> --%>
+				            </div>
+							<div class="row">
+								<!-- <div class="">
 					                <div class="input-group mb-2">
+										<select class="form-control selectpicker noborder"  title="검색구분">
+											<option>제목</option>
+											<option>작성자</option>
+											<option>문의내용</option>
+										</select>
 					                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
 					                    <button type="submit" class="input-group-text bg-success text-light">
 					                        <i class="fa fa-fw fa-search text-white"></i>
 					                    </button>
 					                </div>
-				            </div>
+					            </div> -->
+								<table cellpadding="0" cellspacing="0" border="0" class="search_table">
+									<tbody>
+										<tr>
+											<td class="search_td">
+												<select id="searchSel" class="form-control selectpicker noborder" title="검색구분">
+													<option value="1">제목</option>
+													<option value="2">작성자</option>
+													<option value="3">문의내용</option>
+												</select>
+											</td>
+											<td class="search_td">
+												<input name="sword" type="text" id="sword" class="search_input" label="검색어" placeholder="SEARCH">
+											</td>
+											<td style="border-bottom: 1px solid #A9B2B9">
+												<button type="submit" id="searchBtn" class="search_btn">
+													<i class="fa fa-fw fa-search text-white"></i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 							<div class="table-responsive">
 								<table class="table table-striped table-hover">
 									<thead>
@@ -144,4 +170,15 @@ $('#goToEnquiry').on('click',function(){
 	
 	location.href="enquiry?boardId=" + ${boardId};
 });
+$('#searchBtn').on('click',function(){
+	var selValue = $("#searchSel option:selected").val();
+	var sword = $("#sword").val();
+	
+	if(sword.length==0){
+		alert('검색어를 입력하세요');
+		return false;
+	}
+	
+});
+}
 </script>

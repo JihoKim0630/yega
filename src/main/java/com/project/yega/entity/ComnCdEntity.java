@@ -34,8 +34,7 @@ public class ComnCdEntity {
     @Column(name="ORDER_SEQ", nullable = false, length = 10)
     private int orderSeq;		//노출순서
     
-    @ColumnDefault("Y") 
-    @Column(name="USE_YN", nullable = false, length = 1)
+    @Column(name="USE_YN", nullable = false, columnDefinition = "varchar(1) default 'Y'")
     private String useYn;  		//사용여부
     
     @Column(name="REF_1", nullable = true, length = 255)

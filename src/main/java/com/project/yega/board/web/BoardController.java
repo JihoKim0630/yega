@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.project.yega.board.dto.EnquiryInDto;
+import com.project.yega.board.dto.BoardContentDTO;
 import com.project.yega.entity.BoardContentEntity;
 
 import lombok.Data;
@@ -34,11 +34,21 @@ public class BoardController {
 	 * 게시판
 	 */
 	@GetMapping(value ="/boardList")
-     public String geBoardList(@RequestParam("boardId") int boardId, Model model
-    		 				, @PageableDefault(sort = "id", direction = Direction.DESC, size = 10) Pageable pageable) {
+     public String geBoardList( Model model,
+    		 					@RequestParam("boardId") int boardId, 
+    		 					@RequestParam(value="serchCon",required = false) String serchCon, //검색조건
+    		 					@RequestParam(value="sword",required = false) String sword,//검색어
+    		 					@PageableDefault(sort = "id", direction = Direction.DESC, size = 10) Pageable pageable) {
 		String boardNm = boardService.getBoard(boardId).getBoardNm();
 		String boardEngNm = boardService.getBoard(boardId).getBoardEngNm();
-		Page<BoardContentEntity> contentList = boardService.getBoardContentList(boardId, pageable);
+
+		Page<BoardContentEntity> contentList;
+		
+		if(!"".equals(serchCon) ) {//검색조건이 있으면
+			contentList = boardService.searchContents(serchCon, sword, pageable);
+		}else {
+			contentList = boardService.getBoardContentList(boardId, pageable);
+		}
      	
      	/*페이징처리 관련 S*/
      	int startPage = Math.max(1, contentList.getPageable().getPageNumber()/10*10+1);
@@ -62,15 +72,7 @@ public class BoardController {
      	model.addAttribute("boardNm", boardNm);
      	model.addAttribute("boardId", boardId);
 
-     	log.debug("startPage : " + startPage);
-     	log.debug("endPage : " + endPage);
-     	log.debug("hasPrev : " + hasPrev);
-     	log.debug("hasNext : " + hasNext);
-     	log.debug("contentList.getPageable().getPageNumber() : " + contentList.getPageable().getPageNumber());
-     	log.debug("contentList.getTotalPages() : " + contentList.getTotalPages());
-     
      	String rtn = "board/"+boardEngNm+"List";
-//    	return rtn;
     	return "board/enquiryList";
      }
 
@@ -105,7 +107,7 @@ public class BoardController {
       */
      @PostMapping(value ="/insertContents")
      @ResponseBody
-     public BoardContentEntity putBoardContents(@RequestBody EnquiryInDto inputDto) {
+     public BoardContentEntity putBoardContents(@RequestBody BoardContentDTO inputDto) {
     	 
     	 log.debug("========inDTO : \n" + inputDto.toString());
     	 boardService.insertContents(inputDto);

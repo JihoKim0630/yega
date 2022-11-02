@@ -37,7 +37,7 @@ public class CategoryEntity {
 	private CategoryEntity parent;
 	
     @CreatedDate
-    @Column(name = "DREATE_DT", nullable = false)
+    @Column(name = "CREATE_DT", nullable = false)
     private LocalDateTime createDt;	//생성일시
     @LastModifiedDate
     @Column(name = "UPDATE_DT", nullable = true)

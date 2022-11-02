@@ -39,8 +39,7 @@ public class ProdImgEntity {
     @Column(name="IMG_PATH", nullable = false, length = 1000)
     private String imgPath; 			//서버이미지경로
     
-    @ColumnDefault("N")
-    @Column(name="MAIN_IMG_YN", nullable = false, length = 1)
+    @Column(name="MAIN_IMG_YN", nullable = false, columnDefinition = "varchar(1) default 'N'")
     private String mainImgYn; 		//메인이미지여부(상품게시판에 노출)
     
     @CreatedDate

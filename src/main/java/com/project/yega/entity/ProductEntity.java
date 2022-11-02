@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -40,9 +41,12 @@ public class ProductEntity {
     @Column(name="MNFC_COMPNY" , nullable = false, length = 500)
     private String mnfcCompny;	//제조사
     
-    @ColumnDefault("N")
-    @Column(name="DISPLAY_YN" , nullable = false, length = 1)
+    @Column(name="DISPLAY_YN" , nullable = false, columnDefinition = "varchar(1) default 'N'")
     private String displayYn; //전시여부
+    
+    @Lob
+    @Column(name="PROD_DTL_SBST" , nullable = false)
+    private String prodDtlSbst; //상품상세내용 
     
     @Column(name="PROD_TAG" , nullable = true, length = 2000)
     private String prodTag; //상품태그 

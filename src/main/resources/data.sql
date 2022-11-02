@@ -1,75 +1,63 @@
 /*카테고리 초기데이터*/
-insert into category value(100,1,'목재/합판/보드 ',100)on duplicate key update ctg_lvl = 1 , ctg_nm = '목재/합판/보드 ';
-insert into category value(101,2,'합판/MD',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '합판/MD';
-insert into category value(102,2,'석고&부자재',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '석고&부자재';
-insert into category value(103,2,'구조재/방부목',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '구조재/방부목';
-insert into category value(104,2,'루바/원목몰딩',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '루바/원목몰딩';
-insert into category value(105,2,'집성판/계단재',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '집성판/계단재';
-insert into category value(106,2,'인테리어보드',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '인테리어보드';
-insert into category value(107,2,'합성목재',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '합성목재';
-insert into category value(200,1,'페인트/방수/몰탈',200)on duplicate key update ctg_lvl = 1 , ctg_nm = '페인트/방수/몰탈';
-insert into category value(201,2,'수성페인트',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '수성페인트';
-insert into category value(202,2,'유성페인트',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '유성페인트';
-insert into category value(203,2,'스테인',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '스테인';
-insert into category value(204,2,'특수페인트',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '특수페인트';
-insert into category value(205,2,'페인트부자제',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '페인트부자제';
-insert into category value(206,2,'방수/발수제',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '방수/발수제';
-insert into category value(207,2,'몰탈',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '몰탈';
-insert into category value(208,2,'테라코',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '테라코';
-insert into category value(300,1,'도어/몰딩',300)on duplicate key update ctg_lvl = 1 , ctg_nm = '도어/몰딩';
-insert into category value(301,2,'예가몰딩',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '예가몰딩';
-insert into category value(302,2,'영림도어',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '영림도어';
-insert into category value(303,2,'영림중문',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '영림중문';
-insert into category value(304,2,'영림아트월',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '영림아트월';
-insert into category value(305,2,'인테리어필름',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '인테리어필름';
-insert into category value(306,2,'도어하드웨어',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '도어하드웨어';
-insert into category value(307,2,'영림몰딩',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '영림몰딩';
-insert into category value(400,1,'바스',400)on duplicate key update ctg_lvl = 1 , ctg_nm = '바스';
-insert into category value(401,2,'아메스 양변기',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '아메스 양변기';
-insert into category value(402,2,'아메스 세면대',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '아메스 세면대';
-insert into category value(403,2,'아메스 수전',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '아메스 수전';
-insert into category value(404,2,'아메스 악세서리',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '아메스 악세서리';
-insert into category value(405,2,'욕실장',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '욕실장';
-insert into category value(500,1,'철물',500)on duplicate key update ctg_lvl = 1 , ctg_nm = '철물';
-insert into category value(501,2,'실리콘',500)on duplicate key update ctg_lvl = 2 , ctg_nm = '실리콘';
-insert into category value(502,2,'포장용품',500)on duplicate key update ctg_lvl = 2 , ctg_nm = '포장용품';
-insert into category value(503,2,'위생설비용품',500)on duplicate key update ctg_lvl = 2 , ctg_nm = '위생설비용품';
-insert into category value(504,2,'전기용품',500)on duplicate key update ctg_lvl = 2 , ctg_nm = '전기용품';
-insert into category value(600,1,'공구',600)on duplicate key update ctg_lvl = 1 , ctg_nm = '공구';
-insert into category value(601,2,'절삭공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '절삭공구';
-insert into category value(602,2,'연마공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '연마공구';
-insert into category value(603,2,'측정공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '측정공구';
-insert into category value(604,2,'용접공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '용접공구';
-insert into category value(605,2,'작업공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '작업공구';
-insert into category value(606,2,'전동공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '전동공구';
-insert into category value(607,2,'목공공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '목공공구';
-insert into category value(700,1,'산업안전용품',700)on duplicate key update ctg_lvl = 1 , ctg_nm = '산업안전용품';
-insert into category value(701,2,'장갑',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '장갑';
-insert into category value(702,2,'안전화',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '안전화';
-insert into category value(703,2,'마스크',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '마스크';
-insert into category value(704,2,'개인보호',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '개인보호';
-insert into category value(705,2,'도로안전',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '도로안전';
-insert into category value(706,2,'건설안전',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '건설안전';
-insert into category value(707,2,'소방안전',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '소방안전';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(100,now(),1,'목재/합판/보드 ',100)on duplicate key update ctg_lvl = 1 , ctg_nm = '목재/합판/보드 ';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(101,now(),2,'합판/MD',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '합판/MD';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(102,now(),2,'석고&부자재',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '석고&부자재';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(103,now(),2,'구조재/방부목',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '구조재/방부목';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(104,now(),2,'루바/원목몰딩',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '루바/원목몰딩';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(105,now(),2,'집성판/계단재',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '집성판/계단재';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(106,now(),2,'인테리어보드',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '인테리어보드';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(107,now(),2,'합성목재',100)on duplicate key update ctg_lvl = 2 , ctg_nm = '합성목재';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(200,now(),1,'페인트/방수/몰탈',200)on duplicate key update ctg_lvl = 1 , ctg_nm = '페인트/방수/몰탈';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(201,now(),2,'수성페인트',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '수성페인트';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(202,now(),2,'유성페인트',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '유성페인트';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(203,now(),2,'스테인',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '스테인';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(204,now(),2,'특수페인트',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '특수페인트';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(205,now(),2,'페인트부자제',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '페인트부자제';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(206,now(),2,'방수/발수제',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '방수/발수제';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(207,now(),2,'몰탈',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '몰탈';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(208,now(),2,'테라코',200)on duplicate key update ctg_lvl = 2 , ctg_nm = '테라코';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(300,now(),1,'도어/몰딩',300)on duplicate key update ctg_lvl = 1 , ctg_nm = '도어/몰딩';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(301,now(),2,'예가몰딩',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '예가몰딩';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(302,now(),2,'영림도어',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '영림도어';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(303,now(),2,'영림중문',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '영림중문';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(304,now(),2,'영림아트월',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '영림아트월';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(305,now(),2,'인테리어필름',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '인테리어필름';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(306,now(),2,'도어하드웨어',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '도어하드웨어';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(307,now(),2,'영림몰딩',300)on duplicate key update ctg_lvl = 2 , ctg_nm = '영림몰딩';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(400,now(),1,'바스',400)on duplicate key update ctg_lvl = 1 , ctg_nm = '바스';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(401,now(),2,'아메스 양변기',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '아메스 양변기';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(402,now(),2,'아메스 세면대',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '아메스 세면대';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(403,now(),2,'아메스 수전',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '아메스 수전';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(404,now(),2,'아메스 악세서리',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '아메스 악세서리';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(405,now(),2,'욕실장',400)on duplicate key update ctg_lvl = 2 , ctg_nm = '욕실장';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(500,now(),1,'철물',500)on duplicate key update ctg_lvl = 1 , ctg_nm = '철물';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(501,now(),2,'실리콘',500)on duplicate key update ctg_lvl = 2 , ctg_nm = '실리콘';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(502,now(),2,'포장용품',500)on duplicate key update ctg_lvl = 2 , ctg_nm = '포장용품';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(503,now(),2,'위생설비용품',500)on duplicate key update ctg_lvl = 2 , ctg_nm = '위생설비용품';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(504,now(),2,'전기용품',500)on duplicate key update ctg_lvl = 2 , ctg_nm = '전기용품';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(600,now(),1,'공구',600)on duplicate key update ctg_lvl = 1 , ctg_nm = '공구';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(601,now(),2,'절삭공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '절삭공구';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(602,now(),2,'연마공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '연마공구';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(603,now(),2,'측정공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '측정공구';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(604,now(),2,'용접공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '용접공구';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(605,now(),2,'작업공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '작업공구';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(606,now(),2,'전동공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '전동공구';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(607,now(),2,'목공공구',600)on duplicate key update ctg_lvl = 2 , ctg_nm = '목공공구';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(700,now(),1,'산업안전용품',700)on duplicate key update ctg_lvl = 1 , ctg_nm = '산업안전용품';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(701,now(),2,'장갑',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '장갑';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(702,now(),2,'안전화',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '안전화';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(703,now(),2,'마스크',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '마스크';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(704,now(),2,'개인보호',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '개인보호';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(705,now(),2,'도로안전',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '도로안전';
+insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(706,now(),2,'건설안전',700)on duplicate key update ctg_lvl = 2 , ctg_nm = '건설안전';
+
 		 
 /*상품 초기데이터*/
-insert into product(product_id,display_yn,mnfc_compny,prod_price,prod_tag,prod_nm,ctg_id)
- value('100','Y', '예가',10000, null,'아메스/플랫 반다리 일체형 세면대','100')
-	on duplicate key 
-	update 
-		  mnfc_compny = '예가'
-		 , prod_nm = '아메스/플랫 반다리 일체형 세면대'
-		 , prod_price = 10000
-		 , ctg_id = '100';
+insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('100',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',10000, null,'아메스/플랫 반다리 일체형 세면대','100')
+	on duplicate key update prod_nm = '아메스/플랫 반다리 일체형 세면대', ctg_id = '101';
 		 
-insert into product(product_id,display_yn,mnfc_compny,prod_price,prod_tag,prod_nm,ctg_id)
- value('200','Y', '예가',20000, null,'시그니처 탑볼 원홀 세면수전','100')
-	on duplicate key 
-	update 
-		  mnfc_compny = '예가'
-		 , prod_nm = '시그니처 탑볼 원홀 세면수전'
-		 , prod_price = 20000
-		 , ctg_id = '100';	
+insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('200',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',20000, null,'시그니처 탑볼 원홀 세면수전','100')
+	on duplicate key update prod_nm = '시그니처 탑볼 원홀 세면수전', ctg_id = '101';	
 		 	
 /*상품이미지 초기데이터*/
 insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)

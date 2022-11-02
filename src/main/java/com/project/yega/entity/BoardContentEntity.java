@@ -37,35 +37,40 @@ public class BoardContentEntity {
     
     @Column(name = "CONTENT_SUB", nullable = false, length = 100)
 	private String contentSub;		//글제목 
+    
     @Column(name = "AUTHOR_ID", nullable = false, length = 100)
     private String authorId;  		//작성자아이디
-    @Column(name = "AUTHOR_EMAIL", nullable = true, length = 100)
+    
+    @Column(name = "AUTHOR_EMAIL", length = 100)
     private String authorEmail;  	//작성자이메일
-    @Column(name = "AUTHOR_PHONE_NUM", nullable = true, length = 20)
+    
+    @Column(name = "AUTHOR_PHONE_NUM", length = 20)
     private String authorPhoneNum;  //작성자연락처
-    @ColumnDefault("N") 
-    @Column(name = "ALARM_YN", nullable = false, length = 1)
+    
+    @Column(name = "ALARM_YN", columnDefinition = "varchar(1) default 'N'")
     private String alarmYn;			//공지여부
-    @ColumnDefault("Y") 
-    @Column(name = "DISPLAY_YN", nullable = false, length = 1)
+    
+    @Column(name = "DISPLAY_YN", columnDefinition = "varchar(1) default 'Y'")
     private String displayYn;		//전시여부
-    @ColumnDefault("N") 
-    @Column(name = "LOCK_YN", nullable = false, length = 1)
+    
+    @Column(name = "LOCK_YN", columnDefinition = "varchar(1) default 'N'")
     private String lockYn;			//비밀글여부
-    @Column(name = "CONTENT_PW", nullable = true, length = 10)
+    
+    @Column(name = "CONTENT_PW", length = 10)
     private String contentPw;		//글비밀번호
+    
     @Lob
     private String contentSbst;		//글내용
     
     @ColumnDefault("0") 
-    @Column(name="LOOK_UP_CNT", nullable = false, length = 10)
+    @Column(name="LOOK_UP_CNT", length = 10)
     private int lookUpCnt;			//조회수
     
     @CreatedDate
-    @Column(name = "DREATE_DT", nullable = false)
+    @Column(name = "CREATE_DT")
     private LocalDateTime createDt;	//생성일시
     @LastModifiedDate
-    @Column(name = "UPDATE_DT", nullable = true)
+    @Column(name = "UPDATE_DT")
     private LocalDateTime updateDt;	//수정일시
 
 }
