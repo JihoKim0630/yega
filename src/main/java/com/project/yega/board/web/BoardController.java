@@ -35,20 +35,15 @@ public class BoardController {
 	 */
 	@GetMapping(value ="/boardList")
      public String geBoardList( Model model,
-    		 					@RequestParam("boardId") int boardId, 
-    		 					@RequestParam(value="serchCon",required = false) String serchCon, //검색조건
-    		 					@RequestParam(value="sword",required = false) String sword,//검색어
+    		 					@RequestParam(value="boardId", defaultValue = "0") int boardId, 
     		 					@PageableDefault(sort = "id", direction = Direction.DESC, size = 10) Pageable pageable) {
 		String boardNm = boardService.getBoard(boardId).getBoardNm();
-		String boardEngNm = boardService.getBoard(boardId).getBoardEngNm();
 
 		Page<BoardContentEntity> contentList;
 		
-		if(!"".equals(serchCon) ) {//검색조건이 있으면
-			contentList = boardService.searchContents(serchCon, sword, pageable);
-		}else {
-			contentList = boardService.getBoardContentList(boardId, pageable);
-		}
+		contentList = boardService.getBoardContentList(boardId, pageable);
+		
+		log.debug("contentList>>>> " + contentList.getContent().toString());
      	
      	/*페이징처리 관련 S*/
      	int startPage = Math.max(1, contentList.getPageable().getPageNumber()/10*10+1);
@@ -72,10 +67,48 @@ public class BoardController {
      	model.addAttribute("boardNm", boardNm);
      	model.addAttribute("boardId", boardId);
 
-     	String rtn = "board/"+boardEngNm+"List";
     	return "board/enquiryList";
      }
 
+	/*
+	 * 문의사항 게시글 검색
+	 */
+	@GetMapping(value="/searchVal" )
+	public String getListBySword(@RequestParam("boardId") int boardId,
+								@RequestParam(value="serchCon",required = false) String serchCon, //검색조건
+								@RequestParam(value="sword",required = false) String sword,//검색어
+								@PageableDefault(sort = "id", direction = Direction.DESC, size = 10) Pageable pageable
+								,Model model){
+		Page<BoardContentEntity> contentList;
+		String boardNm = boardService.getBoard(boardId).getBoardNm();
+		contentList = boardService.searchContents(serchCon, sword, pageable);
+		model.addAttribute("boardId",boardId);
+		
+		/*페이징처리 관련 S*/
+     	int startPage = Math.max(1, contentList.getPageable().getPageNumber()/10*10+1);
+     	int endPage = Math.min(contentList.getTotalPages(), startPage+9);
+     	boolean hasNext = true;
+     	boolean hasPrev = true;
+     	if(startPage <=1) {
+     		hasPrev = false;
+     	}
+     	if(endPage >= contentList.getTotalPages()) {
+     		hasNext = false;
+     	}
+     	model.addAttribute("startPage", startPage);
+     	model.addAttribute("endPage", endPage);
+     	model.addAttribute("currPage", contentList.getPageable().getPageNumber());
+     	model.addAttribute("hasPrev", hasPrev);
+     	model.addAttribute("hasNext", hasNext);
+     	/*페이징처리 관련 E*/
+     	
+     	model.addAttribute("contentList", contentList.getContent());
+     	model.addAttribute("boardNm", boardNm);
+     	model.addAttribute("boardId", boardId);
+
+    	return "board/enquiryList";
+	}
+	
      /*
       * 문의사항 게시글 폼
       */
@@ -101,7 +134,6 @@ public class BoardController {
      	 return "board/enquiryDtl";
       }
       
-
      /*
       * 게시글 create API
       */
@@ -114,6 +146,7 @@ public class BoardController {
     	 
     	 return null;
      }
+     
      /*
       * 조회수 증가 API
       */
@@ -126,6 +159,4 @@ public class BoardController {
     	 
     	 return null;
      }
-     
-    
 }

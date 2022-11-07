@@ -94,4 +94,19 @@ public class ProductService {
 		  modelmapper.map(prodImgRepository.findByProduct_IdAndMainImgYn(prodId,"Y").get(0), prodMainImg);
 		  return prodMainImg; 
 	  }
+	  /**
+	   *  카테고리아이디로 상품리스트 가져오는 메소드 
+	   * @param    
+	   * @return List<ProductDTO> 
+	   * @ 작성자 KJH    
+	   * @ version 1.0   
+	   */
+	  public List<ProductDTO> searchProductByCtgId(ProductDTO inDTO) { 
+		  productRepository.findByCategory_Id(inDTO.getCategoryId());
+		  
+		  List<ProductDTO> productDTO = Arrays.asList(modelmapper.map(productRepository.findByCategory_Id(inDTO.getCategoryId()),ProductDTO[].class));
+		  return productDTO; 
+	  }
+	  
+	  
 }

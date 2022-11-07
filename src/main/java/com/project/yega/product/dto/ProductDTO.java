@@ -13,6 +13,7 @@ public class ProductDTO {
     private int id;				//상품아이디(키값)
     private String prodNm; 		//상품명
     private CategoryDTO category; 		//카테고리아이디
+    private int categoryId; 		//카테고리아이디
     private String displayYn;	//전시여부
     private String mnfcCompny;  //제조사명
     private long prodPrice; 	//상품가격

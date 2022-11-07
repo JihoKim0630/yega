@@ -12,5 +12,5 @@ import lombok.Data;
 @Repository
 public interface CategoryRepository extends JpaRepository<CategoryEntity,Integer> {
 	List<CategoryEntity> findByCtgLvl(int ctgLvl);
-	List<CategoryEntity> findByParent_Id(int oppCtgId);
+	List<CategoryEntity> findByParent_IdAndCtgLvl(int oppCtgId, int ctgLvl);
 }

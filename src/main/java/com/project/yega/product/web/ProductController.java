@@ -5,12 +5,15 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.yega.category.dto.CategoryDTO;
 import com.project.yega.category.web.CategoryService;
@@ -40,6 +43,7 @@ public class ProductController {
     public String getProductList(Model model) {
     	
     	List<ProductDTO> prodList = productService.getProductList("Y");//전시여부 Y 인 상품만 가져오기..
+    	jsonUtill.ObjToJson(prodList);
     	log.debug("상품 목록 : " +prodList.toString());
     	
     	//상품아이디로 이미지리스트 가져와서 setting해준다.
@@ -56,7 +60,7 @@ public class ProductController {
     	
     	List<CategoryDTO> ctgList = categoryService.getCategoryByLvl(1);
     	
-    	model.addAttribute("prodList",prodList);
+    	model.addAttribute("prodList",jsonUtill.ObjToJson(prodList));
     	model.addAttribute("rootCtgList", ctgList);//최상위카테고리
     	
     	return "product/productList";
@@ -69,5 +73,30 @@ public class ProductController {
     	model.addAttribute("prodDtl",prodDtl);
     	
     	return "product/productDtl";
+    }
+    
+    /*
+     * 카테고리 별 select
+     */
+    @PostMapping(value ="/searchByCtgId")
+    @ResponseBody
+    public ResponseEntity<List<ProductDTO>> searchProductByCtgId(@RequestBody ProductDTO productDTO) {
+   	 
+    	List<ProductDTO> resultDTO = productService.searchProductByCtgId(productDTO);
+    	log.debug("========productDTO : \n" + resultDTO);
+    	
+    	//상품아이디로 이미지리스트 가져와서 setting해준다.
+    	for(ProductDTO obj : resultDTO ) {
+    		int prodId = obj.getId();
+    		
+    		//메인 화면에서는 메인이미지만 필요하므로 메인만 받아서 넘긴다..
+    		List<ProdImgDTO> imgList = new ArrayList<ProdImgDTO>();
+    		ProdImgDTO mainImg = productService.getProdMainImg(prodId);
+    		
+    		imgList.add(mainImg);
+    		obj.setProdImgList(imgList);
+    	}
+   	 
+    	return ResponseEntity.ok().body(resultDTO);
     }
 }

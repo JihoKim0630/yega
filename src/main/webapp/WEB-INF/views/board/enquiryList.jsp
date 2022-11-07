@@ -44,7 +44,7 @@
 												<input name="sword" type="text" id="sword" class="search_input" label="검색어" placeholder="SEARCH">
 											</td>
 											<td style="border-bottom: 1px solid #A9B2B9">
-												<button type="submit" id="searchBtn" class="search_btn">
+												<button id="searchBtn" class="search_btn">
 													<i class="fa fa-fw fa-search text-white"></i>
 												</button>
 											</td>
@@ -63,7 +63,7 @@
 											<th>조회수</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody id="contentsBody">
 										<c:forEach var="i" items="${contentList}" varStatus="vs">
 										     <tr id="row_${vs.current.id}" name = "conRow" data-content-seq = "${vs.current.id}" data-look-up-cnt="${vs.current.lookUpCnt}">
 												<td class="py-1">${vs.index+1}</td>
@@ -140,9 +140,11 @@
 </body>
 <script>
  
+ var conList = JSON.parse('${contentList}');
+ 
 $( document ).ready(function() {
 	
-    
+	drawContents(conList);
 });
 
 function incrsLookCnt(contentSeq){
@@ -157,28 +159,53 @@ function incrsLookCnt(contentSeq){
 	
 }
 
+function drawContents(list){
+	var html ='';
+	html+='<tr id="row_${vs.current.id}" name = "conRow" data-content-seq = "${vs.current.id}" data-look-up-cnt="${vs.current.lookUpCnt}"> ';
+	html+='	<td class="py-1">${vs.index+1}</td>                                                                                            ';
+	html+='	<td>${vs.current.contentSub}</td>                                                                                              ';
+	html+='	<td>                                                                                                                           ';
+	html+='		<!-- <div class="progress">                                                                                                  ';
+	html+='			<div class="progress-bar bg-success" role="progressbar"                                                                    ';
+	html+='				style="width: 25%" aria-valuenow="25" aria-valuemin="0"                                                                  ';
+	html+='				aria-valuemax="100"></div>                                                                                               ';
+	html+='		</div> -->                                                                                                                   ';
+	html+='		 <fmt:parseDate pattern="yyyy-MM-dd'T'HH:mm:ss" value="${vs.current.createDt}" var="parseDateTime" type="both"/>             ';
+	html+='		 <fmt:formatDate pattern="yy.MM.dd HH:mm" value="${parseDateTime}"/>                                                         ';
+	html+='	</td>                                                                                                                          ';
+	html+='	<td>${vs.current.authorId}</td>                                                                                                ';
+	html+='	<td>${vs.current.lookUpCnt}</td>                                                                                               ';
+	html+='</tr>                                                                                                                           ';
+}
+
 $('tr[name=conRow]').on('click',function(){
 	var contentSeq = $(this).data('contentSeq'); //게시글 아이디
 	//조회수 증가
 	incrsLookCnt(contentSeq);
-	
 	location.href="enquiryDtl/" + contentSeq;
-	
 });
 
 $('#goToEnquiry').on('click',function(){
 	
 	location.href="enquiry?boardId=" + ${boardId};
 });
+
 $('#searchBtn').on('click',function(){
 	var selValue = $("#searchSel option:selected").val();
 	var sword = $("#sword").val();
-	
 	if(sword.length==0){
 		alert('검색어를 입력하세요');
 		return false;
 	}
 	
+	var param  = 'boardId='+ ${boardId};
+		param += '&serchCon=' + selValue
+		param += '&sword=' + sword;
+		
+	var url = window.location.protocol + "//" + window.location.host;
+		url += '/board/boardList?' + param;
+		
+		location.href= url;
+	
 });
-}
 </script>

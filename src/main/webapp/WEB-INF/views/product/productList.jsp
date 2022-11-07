@@ -6,7 +6,7 @@
 
 <script>
 var _rootCtgList = '${rootCtgList}';
-var _prodList = '${prodList}';
+var _prodList = JSON.parse('${prodList}');
 var _testData;
 
 $( document ).ready(function() {
@@ -17,32 +17,93 @@ $( document ).ready(function() {
 		console.log($(this).attr('id'));
 		var pId = $(this).attr('id');
 		var ctgId = $('#'+pId).data('ctgId'); //해당 최상위 카테고리아이디
-		
 		getChildCtgList(ctgId);
-		
 	});
 
+	drawProdList(_prodList);
+	
 	function setComma(num){
 		
-	console.log("setComma num : " +num);
+		console.log("setComma num : " +num);
 		return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 	}
-	
-    
 });
 
+/*
+ * 상품리스트 그리기
+ *
+ *
+ */
+var drawProdList = function(prodList){
+	
+	console.log("drawProd>>>>>\n" + prodList);
+	var html ='';
+	$.each(prodList, function(i, item){
+		console.log(item);
+		html += ' <div class="col-md-4">                                                                                                                      ' ;
+		html += '       <div class="card mb-4 product-wap rounded-0">                                                                                         ' ;
+		html += '           <div class="card rounded-0">                                                                                                      ' ;
+		html += '               <img class="card-img rounded-0 img-fluid" src="'+item.prodImgList[0].imgPath+'">                                               ' ;
+		html += '               <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">                     ' ;
+		html += '                   <ul class="list-unstyled">                                                                                                ' ;
+		html += '                   	<!-- 자세히보기 -->                                                                                                      ' ;
+		html += '                       <li><a class="btn btn-success text-white mt-2" href="/product/detail/'+item.id+'"><i class="far fa-eye"></i></a></li> ' ;
+		html += '                   	 </ul>                                                                                                                   ';
+		html += '               </div>                                                                                                                        ';
+		html += '           </div>                                                                                                                            ';
+		html += '           <div class="card-body">                                                                                                           ';
+		html += '               <a href="shop-single.html" class="h3 text-decoration-none">'+item.prodNm+'</a>                                                 ';
+		html += '               <c:set var="commaPrice" value="javascript:setComma('+item.prodPrice+');" />                                                    ';
+		html += '               <p class="text-center mb-0">10,000원</p>                                                                                      ';
+		html += '           </div>                                                                                                                         ';
+		html += '       </div>';
+		html +='   </div> ';
+	});
+	
+	$('#prodList').empty().append(html);
+	
+};
+/*
+ *	ctgId로 상품 찾기
+ *
+ */
+var searchByCtgId = function(ctgId){
+		//var ctgId = $(this).closest('li').attr('id');
+		
+		console.log("ctgId > " + ctgId);
+		 $.ajax({
+			    url: "/product/searchByCtgId", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+			    dataType:'json',
+		        contentType: 'application/json',
+			    data: JSON.stringify({
+			    	categoryId : Number(ctgId)
+			    }) ,  // HTTP 요청과 함께 서버로 보낼 데이터
+			    method: "POST",   // HTTP 요청 메소드(GET, POST 등)
+			    async: true, //비동기 여부
+			})
+			.success(function(data) {
+				console.log("ctgProdList : " + JSON.stringify(data));
+				
+				drawProdList(data);
+			})
+			.fail(function(xhr, status, errorThrown) {
+			    alert("오류 발생..");
+			})
+			.always(function(xhr, status) {
+				
+			});
+};
 /*
  *	2단계 카테고리 그리기
  *
  */
 var drawSubCtg = function(data, oppCtgId){
-	
     var sHtml='';
+    
     $.each(data, function(index, item){
-    	console.log(item);
-    	sHtml += '<li><a class="text-decoration-none" href="#">'+item.ctgNm +'</a></li>'
-    	
+    	sHtml += '<li id="'+item.id+'"><a name="ctgCd" class="text-decoration-none" onclick="javascript:searchByCtgId('+item.id+');" href="#" >'+item.ctgNm +'</a></li>'
     });
+    
 	$('#childFor_'+oppCtgId).empty().append(sHtml);
 };
 
@@ -115,8 +176,8 @@ function getChildCtgList(oppCtgId){
             </div>
 
             <div class="col-lg-9">
-                <div class="row">
-                	<c:forEach items="${prodList}" var = "item" varStatus="vs">
+                <div class="row" id = "prodList">
+                	<%-- <c:forEach items="${prodList}" var = "item" varStatus="vs">
 	                    <div class="col-md-4">
 	                        <div class="card mb-4 product-wap rounded-0">
 	                            <div class="card rounded-0">
@@ -154,12 +215,12 @@ function getChildCtgList(oppCtgId){
 	                                    </li>
 	                                </ul> -->
 	                                <c:set var="commaPrice" value="javascript:setComma(${item.prodPrice});" />
-	                                <%-- <p class="text-center mb-0">${item.prodPrice}</p> --%>
+	                                <p class="text-center mb-0">${item.prodPrice}</p>
 	                                <p class="text-center mb-0">10,000원</p>
 	                            </div>
 	                        </div>
 	                    </div>
-	                </c:forEach>
+	                </c:forEach> --%>
                 <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">
                         <li class="page-item disabled">

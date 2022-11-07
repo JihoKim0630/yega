@@ -53,11 +53,11 @@ insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(706,now(
 
 		 
 /*상품 초기데이터*/
-insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('100',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',10000, null,'아메스/플랫 반다리 일체형 세면대','100')
-	on duplicate key update prod_nm = '아메스/플랫 반다리 일체형 세면대', ctg_id = '101';
+insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('100',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',10000, null,'아메스/플랫 반다리 일체형 세면대','401')
+	on duplicate key update prod_nm = '아메스/플랫 반다리 일체형 세면대', ctg_id = '401';
 		 
-insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('200',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',20000, null,'시그니처 탑볼 원홀 세면수전','100')
-	on duplicate key update prod_nm = '시그니처 탑볼 원홀 세면수전', ctg_id = '101';	
+insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('200',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',20000, null,'시그니처 탑볼 원홀 세면수전','401')
+	on duplicate key update prod_nm = '시그니처 탑볼 원홀 세면수전', ctg_id = '401';	
 		 	
 /*상품이미지 초기데이터*/
 insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)

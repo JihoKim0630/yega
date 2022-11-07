@@ -71,7 +71,7 @@ public class CategoryService {
 		log.debug("categoryService >>>>> " + oppCtgId);
 		
 //		List<CategoryEntity> categoryList = categoryRepository.findByParent_Id(oppCtgId);
-		List<CategoryDTO> categoryList = Arrays.asList(modelmapper.map(categoryRepository.findByParent_Id(oppCtgId),CategoryDTO[].class));
+		List<CategoryDTO> categoryList = Arrays.asList(modelmapper.map(categoryRepository.findByParent_IdAndCtgLvl(oppCtgId, 2),CategoryDTO[].class));
 		return categoryList;
 	}
 	
