@@ -1,5 +1,7 @@
 package com.project.yega.board.dto;
 
+import com.project.yega.comn.dto.PageDTO;
+
 import lombok.Data;
 
 
@@ -22,4 +24,5 @@ public class BoardContentDTO {
     private String createDt;	//생성일시
     private String updateDt;	//수정일시
 
+    private PageDTO pageDTO; //페이징처리 관련
 }

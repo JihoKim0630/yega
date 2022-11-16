@@ -53,11 +53,19 @@ insert into category(ctg_id, create_dt,ctg_lvl,ctg_nm,opp_ctg_id) value(706,now(
 
 		 
 /*상품 초기데이터*/
-insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('100',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',10000, null,'아메스/플랫 반다리 일체형 세면대','401')
-	on duplicate key update prod_nm = '아메스/플랫 반다리 일체형 세면대', ctg_id = '401';
+insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('100',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',10000, null,'아메스/플랫 반다리 일체형 세면대','201')
+	on duplicate key update prod_nm = '아메스/플랫 반다리 일체형 세면대', ctg_id = '201';
 		 
 insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('200',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',20000, null,'시그니처 탑볼 원홀 세면수전','401')
 	on duplicate key update prod_nm = '시그니처 탑볼 원홀 세면수전', ctg_id = '401';	
+insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('300',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',20000, null,'예쁜타일','101')
+	on duplicate key update prod_nm = '예쁜타일', ctg_id = '101';	
+insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('400',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',20000, null,'예쁜타일2','101')
+	on duplicate key update prod_nm = '예쁜타일2', ctg_id = '101';	
+insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('500',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',20000, null,'예쁜타일3','101')
+	on duplicate key update prod_nm = '예쁜타일3', ctg_id = '101';	
+/*insert into product(product_id,create_dt,display_yn,mnfc_compny,prod_dtl_sbst,prod_price,prod_tag,prod_nm,ctg_id) value('600',now(),'Y', '예가','상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분|상품상세설명부분',20000, null,'예쁜타일4','101')
+	on duplicate key update prod_nm = '예쁜타일4', ctg_id = '101';	*/
 		 	
 /*상품이미지 초기데이터*/
 insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)
@@ -72,6 +80,25 @@ values('3','/assets/img/productImg/100_main.png','test','100_main.png','Y',100)
 insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)
 values('4','/assets/img/productImg/200_main.png','test','200_main.png','Y',200)
 	on duplicate key update img_path = '/assets/img/productImg/200_main.png' ,product_id=200;
+insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)
+values('5','/assets/img/productImg/300_main.jpg','test','300_main.png','Y',300)
+	on duplicate key update img_path = '/assets/img/productImg/300_main.png' ,product_id=300;
+insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)
+values('6','/assets/img/productImg/400_main.jpg','test','400_main.png','Y',400)
+	on duplicate key update img_path = '/assets/img/productImg/400_main.png' ,product_id=400;
+insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)
+values('7','/assets/img/productImg/500_main.jpg','test','500_main.png','Y',500)
+	on duplicate key update img_path = '/assets/img/productImg/500_main.png' ,product_id=500;
+insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)
+values('8','/assets/img/productImg/300_detail_1.png','test','300_detail_1.png','N',300)
+	on duplicate key update img_path = '/assets/img/productImg/300_detail_1.png' ,product_id=300;
+insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)
+values('9','/assets/img/productImg/400_detail_1.png','test','400_detail_1.png','N',400)
+	on duplicate key update img_path = '/assets/img/productImg/400_detail_1.png' ,product_id=400;
+insert into PROD_IMG (file_seq ,img_path ,origin_img_nm ,server_img_nm ,main_img_yn ,product_id)
+values('10','/assets/img/productImg/500_detail_1.png','test','500_detail_1.png','N',500)
+	on duplicate key update img_path = '/assets/img/productImg/500_detail_1.png' ,product_id=500;
+
 
 /*게시판 초기데이터*/
 insert into board (
@@ -108,8 +135,8 @@ values('2','공지사항', '01','notice','20221018' ,'2','Y')
 	  	  ,use_yn='Y';
 
 /*게시글 초기데이터*/
-insert into board_content
-	value('100','N','kim@hanmail.net','김지호','01026272469',null,'배송은 언제쯤 되나요?','배송문의',20221024235959,'Y','N',0,null,'1')
+insert into board_content(content_seq,create_dt,update_dt,alarm_yn,author_email,author_id,author_phone_num,content_pw,content_sbst,content_sub,display_yn,lock_yn,look_up_cnt,board_id)
+	value('100',20221024235959,null,'N','kim@hanmail.net','김지호','01026272469',null,'배송은 언제쯤 되나요?','배송문의','Y','N',0,'1')
 	on duplicate key 
 	update alarm_yn='N'
 	,author_id ='김지호'
@@ -121,8 +148,8 @@ insert into board_content
 	,look_up_cnt=0
 	,board_id='1';
 	
-insert into board_content
-	value('101','N','kim@naver.com','김지호','12345678',null,'장판 재질이 뭔가요?','제품문의',20221022235959,'Y','N',0,null,'1')
+insert into board_content (content_seq,create_dt,update_dt,alarm_yn,author_email,author_id,author_phone_num,content_pw,content_sbst,content_sub,display_yn,lock_yn,look_up_cnt,board_id)
+	value('101',20221022235959,null,'N','kim@naver.com','김지호','12345678',null,'장판 재질이 뭔가요?','제품문의','Y','N',0,'1')
 	on duplicate key 
 	update alarm_yn='N'
 	,author_id ='김지호'
@@ -143,6 +170,40 @@ on duplicate key update use_yn='Y' ;
 insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
 	values('001', '002', '배너2', '20221027',2,'yega_banner_test2.png','/assets/img/yega_banner_test2.png',null,'Y')
 on duplicate key update use_yn='Y' ;
+
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('002', '*', '추천상품', '20221027',0,'PRODUCT_ID','imgFileFullPath','상품명','Y')
+on duplicate key update use_yn='Y' ;
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('002', '001', '추천상품1', '20221027',1,'100','/assets/img/productImg/100_main.png','아메스/플랫 반다리 일체형 세면대','Y')
+on duplicate key update use_yn='Y' ;
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('002', '002', '추천상품2', '20221027',2,'200','/assets/img/productImg/200_main.png','시그니처 탑볼 원홀 세면수전','Y')
+on duplicate key update use_yn='Y' ;
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('002', '003', '추천상품3', '20221027',3,'300','/assets/img/productImg/300_main.jpg','예쁜타일','Y')
+on duplicate key update use_yn='Y' ;
+
+
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('003', '*', '베스트5', '20221027',0,'PRODUCT_ID','imgFileFullPath',null,'Y')
+on duplicate key update use_yn='Y' ;
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('003', '001', '베스트1', '20221027',1,'100','/assets/img/productImg/100_main.png','아메스/플랫 반다리 일체형 세면대','Y')
+on duplicate key update use_yn='Y' ;
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('003', '002', '베스트2', '20221027',2,'200','/assets/img/productImg/200_main.png','시그니처 탑볼 원홀 세면수전','Y')
+on duplicate key update use_yn='Y' ;
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('003', '003', '베스트3', '20221027',3,'300','/assets/img/productImg/300_main.jpg','예쁜타일','Y')
+on duplicate key update use_yn='Y' ;
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('003', '004', '베스트4', '20221027',4,'400','/assets/img/productImg/400_main.jpg','예쁜타일2','Y')
+on duplicate key update use_yn='Y' ;
+insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
+	values('003', '005', '베스트5', '20221027',5,'500','/assets/img/productImg/500_main.jpg','예쁜타일3','Y')
+on duplicate key update use_yn='Y' ;
+
 /*
 insert into comn_cd (l_cd,m_cd,cd_nm,create_dt,order_seq,ref_1,ref_2,ref_3,use_yn)
 	values('001', '003', '배너3', '20221027',3,'banner_img_03.jpg','/assets/img/banner_img_03.jpg',null,'Y')

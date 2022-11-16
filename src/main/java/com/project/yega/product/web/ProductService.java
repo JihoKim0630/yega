@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.yega.entity.ProdImgEntity;
 import com.project.yega.product.dto.ProdImgDTO;
 import com.project.yega.product.dto.ProductDTO;
 
@@ -91,7 +92,18 @@ public class ProductService {
 	  public ProdImgDTO getProdMainImg(int prodId) { 
 		  
 		  ProdImgDTO prodMainImg = new ProdImgDTO();
-		  modelmapper.map(prodImgRepository.findByProduct_IdAndMainImgYn(prodId,"Y").get(0), prodMainImg);
+		  
+		  List<ProdImgEntity> rsult = prodImgRepository.findByProduct_IdAndMainImgYn(prodId,"Y");
+		  
+		  log.debug("rsult사이즈 : " + rsult.size());
+		  log.debug("prodId : " + prodId);
+		  
+		  if(rsult.size() < 1) {//메인이미지 없을 때.. 기본 이미지 셋팅 해주기..
+			  
+		  }else {
+			  modelmapper.map(rsult.get(0), prodMainImg);
+			  
+		  }
 		  return prodMainImg; 
 	  }
 	  /**

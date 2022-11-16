@@ -16,21 +16,60 @@
 							<div class="row">
 								<h4 class="card-title">${boardNm }</h4>
 				            </div>
-							<div class="row">
-								<!-- <div class="">
+							
+							<div class="table-responsive">
+								<table class="table table-striped table-hover">
+									<thead>
+										<tr>
+											<th>번호</th>
+											<th>제목</th>
+											<th>작성일시</th>
+											<th>작성자</th>
+											<th>조회수</th>
+										</tr>
+									</thead>
+									<tbody id="contentsBody">
+										<c:forEach var="i" items="${contentList}" varStatus="vs">
+										     <tr id="row_${vs.current.id}" data-bs-toggle="modal" data-bs-target="#pwModal" name = "conRow" data-content-seq = "${vs.current.id}" data-look-up-cnt="${vs.current.lookUpCnt}">
+												<td class="py-1">${vs.current.id}</td>
+												<td>${vs.current.contentSub}</td>
+												<td>
+													<!-- <div class="progress">
+														<div class="progress-bar bg-success" role="progressbar"
+															style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+															aria-valuemax="100"></div>
+													</div> -->
+													<fmt:parseDate pattern="yyyy-MM-dd'T'HH:mm:ss" value="${vs.current.createDt}" var="parseDateTime" type="date"/>  
+													<fmt:formatDate var="fmtedDt" pattern="yy.MM.dd HH:mm" value="${parseDateTime}"/> 
+													${fmtedDt}
+												</td>
+												<td>${vs.current.authorId}</td>
+												<td>${vs.current.lookUpCnt}</td>
+											</tr>
+										</c:forEach>
+										
+									
+									</tbody>
+								</table>
+							</div>
+							<div class="row searchdiv">
+							
+								<form id="search" action="/board/boardList" method="GET">
 					                <div class="input-group mb-2">
-										<select class="form-control selectpicker noborder"  title="검색구분">
-											<option>제목</option>
-											<option>작성자</option>
-											<option>문의내용</option>
+										<select id="searchCon" name="searchCon" value="${param.searchCon }" class="form-control searchSel" title="검색구분">
+											<option value="1">제목</option>
+											<option value="2">작성자</option>
+											<option value="3">문의내용</option>
 										</select>
-					                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+					                    <input type="text" class="form-control searchText" value="${param.sWord }" id="sWord" name="sWord" placeholder="Search ...">
+					                    <input type="hidden" id="boardId" name="boardId" value="${boardId}">
+					                    <input type="hidden" id="page" name="page" value="">
 					                    <button type="submit" class="input-group-text bg-success text-light">
 					                        <i class="fa fa-fw fa-search text-white"></i>
 					                    </button>
 					                </div>
-					            </div> -->
-								<table cellpadding="0" cellspacing="0" border="0" class="search_table">
+					            </form>
+								<!-- <table cellpadding="0" cellspacing="0" border="0" class="search_table">
 									<tbody>
 										<tr>
 											<td class="search_td">
@@ -50,43 +89,7 @@
 											</td>
 										</tr>
 									</tbody>
-								</table>
-							</div>
-							<div class="table-responsive">
-								<table class="table table-striped table-hover">
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>제목</th>
-											<th>작성일</th>
-											<th>작성자</th>
-											<th>조회수</th>
-										</tr>
-									</thead>
-									<tbody id="contentsBody">
-										<c:forEach var="i" items="${contentList}" varStatus="vs">
-										     <tr id="row_${vs.current.id}" name = "conRow" data-content-seq = "${vs.current.id}" data-look-up-cnt="${vs.current.lookUpCnt}">
-												<td class="py-1">${vs.index+1}</td>
-												<td>${vs.current.contentSub}</td>
-												<td>
-													<!-- <div class="progress">
-														<div class="progress-bar bg-success" role="progressbar"
-															style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-															aria-valuemax="100"></div>
-													</div> -->
-													<%-- <fmt:parseDate var="parseDate" pattern="yyyy-MM-dd HH:ss" value="${vs.current.createDt}"/> --%> 
-													 <fmt:parseDate pattern="yyyy-MM-dd'T'HH:mm:ss" value="${vs.current.createDt}" var="parseDateTime" type="both"/> 
-													 <fmt:formatDate pattern="yy.MM.dd HH:mm" value="${parseDateTime}"/> 
-													<%-- ${vs.current.createDt} --%>
-												</td>
-												<td>${vs.current.authorId}</td>
-												<td>${vs.current.lookUpCnt}</td>
-											</tr>
-										</c:forEach>
-										
-									
-									</tbody>
-								</table>
+								</table> -->
 							</div>
 						</div>
 					</div>
@@ -94,58 +97,147 @@
 			</div>
 			<div div="row">
                 <ul class="pagination pagination-lg justify-content-end">
-	                <c:if test="${hasPrev}">
-	                    <li class="page-item">
-	                        <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="/board/boardList?boardId=${boardId}&page=${startPage-2}"><</a>
+	                <c:if test="${pageDTO.hasPrev}">
+	                    <li class="page-item" id = "hasPrev">
+	                        <a name="pageBtn" data-go-page="${pageDTO.startPage-2}" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"  href="#"><</a>
 	                    </li>
 					</c:if>
-					<c:forEach var="i" begin="${startPage}" end="${endPage }">
-		                <c:if test="${i == currPage+1}">
+					<c:forEach var="i" begin="${pageDTO.startPage}" end="${pageDTO.endPage }">
+		                <c:if test="${i == pageDTO.currPage+1}">
 		                	<li class="page-item disabled">
-		                        <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="/board/boardList?boardId=${boardId}&page=${i-1}">${i}</a>
+		                        <a name="pageBtn" data-go-page="${i-1}" class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#">${i}</a>
 		                    </li>
 		                </c:if>
-		                <c:if test="${i != currPage+1}">
+		                <c:if test="${i != pageDTO.currPage+1}">
 	    	                <li class="page-item">
-		                        <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="/board/boardList?boardId=${boardId}&page=${i-1}">${i}</a>
+		                        <a name="pageBtn" data-go-page="${i-1}" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">${i}</a>
 		                    </li>
 		                </c:if>
 					</c:forEach>
-	                <c:if test="${hasNext}">
-	                    <li class="page-item">
-	                        <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="/board/boardList?boardId=${boardId}&page=${endPage}">></a>
+	                <c:if test="${pageDTO.hasNext}">
+	                    <li class="page-item" id = "hasNext">
+	                        <a name="pageBtn" data-go-page="${pageDTO.endPage}" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">></a>
 	                    </li>
 					</c:if>
                 </ul>
             </div>
-			<%-- <div class="btn-group" role="group" aria-label="Basic example">
-				
-				<c:if test="${hasPrev}">
-              		<button onclick="location.href='/board/boardList?boardId=${boardId}&page=${startPage-2}'" type="button" class="btn btn-outline-secondary"><</button>
-				</c:if>
-				<c:forEach var="i" begin="${startPage }" end="${endPage }">
-	            	<button onclick="location.href='/board/boardList?boardId=${boardId}&page=${i-1}'" type="button" class="btn btn-outline-secondary">${i}</button>
-				</c:forEach>
-				
-				<c:if test="${ hasNext}">
-              		<button onclick="location.href='/board/boardList?boardId=${boardId}&page=${endPage}'" type="button" class="btn btn-outline-secondary">></button>
-				</c:if>
-            </div> --%>
 			<div class="row">
-				<button class="btn btn-success btn-lg px-3" id = "goToEnquiry">문의하기</button>
+				<div class="col text-end mt-2">
+					<button class="btn btn-success btn-lg px-3" id = "goToEnquiry">문의하기</button>
+				</div>
 			</div>
 		</div>
 	</div>
-
+	
+	<!-- Modal -->
+   <div class="modal fade bg-white" id="pwModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            글 비밀번호 입력:
+            <form id="pwChk" action="" method="post" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="hidden" id="id" name="id" value="">
+                    <input type="text" class="form-control" id="contentPw" name="contentPw" placeholder="글 비밀번호 ...">
+                    <button id="submitPw" type="button" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 <script>
  
- var conList = JSON.parse('${contentList}');
- 
+let currConId = '';
 $( document ).ready(function() {
+	//drawContents(conList);
+	$('tr[name=conRow]').on('click',function(){
+		//$('#pwChk').attr("action", "board/enquiryDtl/"+$(this).data('contentSeq') );
+		$('#id').val($(this).data('contentSeq'));
+		
+		/* var contentSeq = $(this).data('contentSeq'); //게시글 아이디
+		
+		//조회수 증가
+		incrsLookCnt(contentSeq);
+		var url = window.location.protocol + "//" + window.location.host + "/";
+		location.href=url+"board/enquiryDtl/" + contentSeq; */
+	});
 	
-	drawContents(conList);
+	//페이지 버튼 클릭
+	$('a[name=pageBtn]').on('click',function(){
+		var goPage = $(this).data('goPage'); //이동할 페이지
+		$('#page').val(goPage);
+		$('#searchCon').val("${param.searchCon }");
+		$('#sWord').val("${param.sWord }");
+		$('#search').submit();
+	});
+	
+	//문의하기 버튼
+	$('#goToEnquiry').on('click',function(){
+		var url = window.location.protocol + "//" + window.location.host + "/";
+		location.href=url+"board/enquiry?boardId="+ ${boardId};
+	});
+	
+	//게시글 검색
+	$('#searchBtn').on('click',function(){
+		var selValue = $("#searchSel option:selected").val();
+		var sword = $("#sword").val();
+		/* if(sword.length==0){
+			alert('검색어를 입력하세요');
+			return false;
+		} */
+		
+		var param  = {boardId : ${boardId}
+					  ,serchCon : selValue
+					  ,sword : sword};
+		 $.ajax({
+			    url: "/board/searchVal", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+			    dataType:'json',
+		        contentType: 'application/json',
+			    data: JSON.stringify(param) ,  // HTTP 요청과 함께 서버로 보낼 데이터
+			    method: "POST",   // HTTP 요청 메소드(GET, POST 등)
+			    async: true, //비동기 여부
+			})
+			.success(function(data) {
+				console.log("conList : " + JSON.stringify(data));
+				
+				drawContents(data);
+			})
+			.fail(function(xhr, status, errorThrown) {
+			    alert("오류 발생..");
+			})
+			.always(function(xhr, status) {
+				
+			});
+		
+	});
+	
+	//비밀번호 submint
+	$('#submitPw').on('click', function(){
+		console.log("submitPw");
+		$.ajax({
+		    url: "/board/pwCheck", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+		    dataType:'json',
+	        contentType: 'application/json',
+		    data: JSON.stringify(
+		    		{id				: $('#id').val()
+					,contentPw		: $('#contentPw').val()}
+		    	),  // HTTP 요청과 함께 서버로 보낼 데이터
+		    method: "POST",   // HTTP 요청 메소드(GET, POST 등)
+		    async: true, //비동기 여부
+		})
+		.always(function(xhr, status) {
+			alert("체크 결과");
+		});
+		
+		
+	});
 });
+function moveToConDtl(){
+	
+}
 
 function incrsLookCnt(contentSeq){
 	 $.ajax({
@@ -159,53 +251,34 @@ function incrsLookCnt(contentSeq){
 	
 }
 
-function drawContents(list){
+/* function drawContents(list){
 	var html ='';
-	html+='<tr id="row_${vs.current.id}" name = "conRow" data-content-seq = "${vs.current.id}" data-look-up-cnt="${vs.current.lookUpCnt}"> ';
-	html+='	<td class="py-1">${vs.index+1}</td>                                                                                            ';
-	html+='	<td>${vs.current.contentSub}</td>                                                                                              ';
-	html+='	<td>                                                                                                                           ';
-	html+='		<!-- <div class="progress">                                                                                                  ';
-	html+='			<div class="progress-bar bg-success" role="progressbar"                                                                    ';
-	html+='				style="width: 25%" aria-valuenow="25" aria-valuemin="0"                                                                  ';
-	html+='				aria-valuemax="100"></div>                                                                                               ';
-	html+='		</div> -->                                                                                                                   ';
-	html+='		 <fmt:parseDate pattern="yyyy-MM-dd'T'HH:mm:ss" value="${vs.current.createDt}" var="parseDateTime" type="both"/>             ';
-	html+='		 <fmt:formatDate pattern="yy.MM.dd HH:mm" value="${parseDateTime}"/>                                                         ';
-	html+='	</td>                                                                                                                          ';
-	html+='	<td>${vs.current.authorId}</td>                                                                                                ';
-	html+='	<td>${vs.current.lookUpCnt}</td>                                                                                               ';
-	html+='</tr>                                                                                                                           ';
-}
-
-$('tr[name=conRow]').on('click',function(){
-	var contentSeq = $(this).data('contentSeq'); //게시글 아이디
-	//조회수 증가
-	incrsLookCnt(contentSeq);
-	location.href="enquiryDtl/" + contentSeq;
-});
-
-$('#goToEnquiry').on('click',function(){
-	
-	location.href="enquiry?boardId=" + ${boardId};
-});
-
-$('#searchBtn').on('click',function(){
-	var selValue = $("#searchSel option:selected").val();
-	var sword = $("#sword").val();
-	if(sword.length==0){
-		alert('검색어를 입력하세요');
-		return false;
-	}
-	
-	var param  = 'boardId='+ ${boardId};
-		param += '&serchCon=' + selValue
-		param += '&sword=' + sword;
+	$.each(list, function(i, item){
+		var pageInfo = '';
+		if(i == 0){
+			pageInfo = item.pageDTO;
+		} 
 		
-	var url = window.location.protocol + "//" + window.location.host;
-		url += '/board/boardList?' + param;
+		console.log("item > "+JSON.stringify(item) );
 		
-		location.href= url;
+													 
+		var pattern = "yyyy-MM-dd'T'HH:mm:ss";
+		var createDate2 = (item.createDt).substr(0,10);
+		
+		html+='<tr id="row_'+item.id+'" name = "conRow" data-content-seq = "'+item.id+'" data-look-up-cnt="'+item.lookUpCnt+'"> ';
+		html+='	<td class="py-1">'+item.id+'</td>                                                                                            ';
+		html+='	<td>'+item.contentSub+'</td>                                                                                              ';
+		//html+='	<td>'+createDate+'</td>                                                                                                ';
+		html+='	<td>';
+		html+=		createDate2;
+		html+='	</td>';   
+		html+='	<td>'+item.authorId+'</td>                                                                                                ';
+		html+='	<td>'+item.lookUpCnt+'</td>                                                                                               ';
+		html+='</tr>                                                                                                                            ';
+	});
 	
-});
+	$('#contentsBody').empty().append(html);
+} */
+
+
 </script>

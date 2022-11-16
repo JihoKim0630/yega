@@ -4,21 +4,20 @@ import java.util.Map;
 
 import org.springframework.data.domain.Page;
 
+import com.project.yega.comn.dto.PageDTO;
+
 public class Pagination {
-	
 	
 	/**
 	 * paging처리 공통 함수
 	 * @param <T>
+	 * @param <T>
 	 */
-	public <T> Map<String,T> pagination(Page<T> list, int contentsNum ) {
+	public <T> PageDTO pagination(Page<T> list, int contentsNum ) {
 		
-		Map<String,T> pagingResult = null ;
-		
-		pagingResult.clear();
-		
-		int startPage = Math.max(1, list.getPageable().getPageNumber()/10*10+1);
-     	int endPage = Math.min(list.getTotalPages(), startPage+9);
+		PageDTO pateDTO = new PageDTO();
+		int startPage = Math.max(1, list.getPageable().getPageNumber()/contentsNum*contentsNum+1);
+     	int endPage = Math.min(list.getTotalPages(), startPage+contentsNum-1);
      	boolean hasNext = true;
      	boolean hasPrev = true;
      	if(startPage <=1) {
@@ -28,13 +27,12 @@ public class Pagination {
      		hasNext = false;
      	}
      	
-
-		pagingResult.put("startPage", startPage);
-		pagingResult.put("endPage", endPage);
-		pagingResult.put("currPage", list.getPageable().getPageNumber());
-		pagingResult.put("hasPrev", hasPrev);
-		pagingResult.put("hasNext", hasNext);
+     	pateDTO.setStartPage(startPage);
+     	pateDTO.setEndPage(endPage);
+     	pateDTO.setCurrPage(list.getPageable().getPageNumber());
+     	pateDTO.setHasPrev(hasPrev);
+     	pateDTO.setHasNext(hasNext);
      	
-     	return pagingResult;
+     	return pateDTO;
 	}
 }

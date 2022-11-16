@@ -114,17 +114,18 @@ public class BoardService {
 	 * @ 작성자 KJH    
 	 * @ version 1.0    
 	 * */
-	public Page<BoardContentEntity> searchContents(String serchCon, String sword, Pageable pageable) {
+	public Page<BoardContentEntity> searchContents(int boardId,String serchCon, String sword, Pageable pageable) {
 		
 		Page<BoardContentEntity> list;
 			
 		if("1".equals(serchCon)) {//제목
-			list = boardContentRepository.findByContentSubContaining(sword ,pageable);
+			list = boardContentRepository.findByBoardIdAndContentSubContaining(boardId,sword ,pageable);
 		}else if("2".equals(serchCon)) {//작성자
-			list   = boardContentRepository.findByAuthorIdContaining(sword,pageable);
+			list   = boardContentRepository.findByBoardIdAndAuthorIdContaining(boardId,sword,pageable);
 		}else{//문의내용
-			list  = boardContentRepository.findByContentSbstContaining(sword,pageable);
+			list  = boardContentRepository.findByBoardIdAndContentSbstContaining(boardId,sword,pageable);
 		}
+		
 		
 		return list;//나중에 Map<String,String>리턴으로 바꿔서 에러처리,예외처리 하기..
 	}

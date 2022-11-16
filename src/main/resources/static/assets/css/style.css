@@ -11166,8 +11166,10 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-success {
   color: #fff;
-  background-color: #57B657;
-  border-color: #57B657;
+  background-color: #376251;
+  border-color: #376251;
+/*   background-color: #57B657;
+  border-color: #57B657; */
 }
 
 .btn-success:hover {
@@ -15714,7 +15716,7 @@ button.bg-secondary:focus {
 }
 
 .bg-success, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .settings-panel .color-tiles .tiles.success {
-  background-color: #57B657 !important;
+  background-color: #376251 !important;
 }
 
 a.bg-success:hover, .swal2-modal .swal2-buttonswrapper a.swal2-styled.swal2-confirm:hover, .settings-panel .color-tiles a.tiles.success:hover, a.bg-success:focus, .swal2-modal .swal2-buttonswrapper a.swal2-styled.swal2-confirm:focus, .settings-panel .color-tiles a.tiles.success:focus,

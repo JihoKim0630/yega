@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -12,8 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,8 +30,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
+@EntityListeners(AuditingEntityListener.class)
+@DynamicInsert
 @Table(name="BOARD_CONTENT")
-public class BoardContentEntity {
+public class BoardContentEntity{
 	@Id @GeneratedValue
     @Column(name="CONTENT_SEQ")
     private int id;
@@ -65,12 +72,14 @@ public class BoardContentEntity {
     @ColumnDefault("0") 
     @Column(name="LOOK_UP_CNT", length = 10)
     private int lookUpCnt;			//조회수
-    
+   
     @CreatedDate
-    @Column(name = "CREATE_DT")
-    private LocalDateTime createDt;	//생성일시
-    @LastModifiedDate
-    @Column(name = "UPDATE_DT")
-    private LocalDateTime updateDt;	//수정일시
+    @Column(name = "CREATE_DT", nullable = false, updatable = false)
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    private LocalDateTime createDt;
 
+    @LastModifiedDate
+    @Column(name = "UPDATE_DT", nullable = true)
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    private LocalDateTime updateDt;
 }

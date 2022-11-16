@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.yega.comn.JsonUtill;
+import com.project.yega.comn.Pagination;
 
 @Configuration
 public class AppConfig {
@@ -28,5 +29,9 @@ public class AppConfig {
 	@Bean
 	public JsonUtill jsonUtill() {
 		return new JsonUtill();
+	}
+	@Bean
+	public Pagination pagination() {
+		return new Pagination();
 	}
 }

@@ -5,8 +5,9 @@ import lombok.Data;
 
 //문의사항 DTO
 @Data
-public class EnquiryInDto {
-    private int id;
+public class BoardConSearchDto {
+	private String serchCon;	//검색조건
+	private String sWord;	//검색어
     private int boardId;		//게시판 아이디
     private String contentSub;	//글제목
     private String authorId;  	//작성자아이디

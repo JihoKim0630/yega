@@ -1,3 +1,5 @@
+<%@include file="/WEB-INF/views/common/tagLib.jsp" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
@@ -8,19 +10,20 @@
             <div class="row">
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>
+               		 <img class="yega-logo" src="/assets/img/logo_yega2.png" alt="">
+                    <!-- <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2> -->
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
-                            123 Consectetur at ligula 10660
+                            제주 제주시 연북로 221
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            <a class="text-decoration-none" href="tel:064-748-5100">064-748-5100</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            <a class="text-decoration-none" href="mailto:info@company.com">이메일@이메일주소.com</a>
                         </li>
                     </ul>
                 </div>
@@ -41,17 +44,17 @@
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="#">About Us</a></li>
-                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
-                        <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                        <li><a class="text-decoration-none" href="#">Contact</a></li>
+                        <li><a class="text-decoration-none" href="#">홈</a></li>
+                        <li><a class="text-decoration-none" href="#">회사소개</a></li>
+                        <li><a class="text-decoration-none" href="#">제품소개</a></li>
+                        <li><a class="text-decoration-none" href="#">공지사항</a></li>
+                        <li><a class="text-decoration-none" href="#">문의사항</a></li>
                     </ul>
                 </div>
 
             </div>
 
-            <div class="row text-light mb-4">
+            <!-- <div class="row text-light mb-4">
                 <div class="col-12 mb-3">
                     <div class="w-100 my-3 border-top border-light"></div>
                 </div>
@@ -78,7 +81,7 @@
                         <div class="input-group-text btn-success text-light">Subscribe</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="w-100 bg-black py-3">

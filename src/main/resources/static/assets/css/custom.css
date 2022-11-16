@@ -1,8 +1,8 @@
 /*
 Custom Css
 */
-.img-logo {
-  max-width: 190px;
+.yega-logo {
+  max-width: 150px;
   height: auto;
 }
 
@@ -12,3 +12,51 @@ Custom Css
 .search_td { display:table-row; border-bottom:1px solid #A9B2B9; padding:5px 5px 0 0px; } 
 .search_input { clear:both; width:167px; height:32px; border:0px; background-color:transparent; color:#777; margin:0; padding:0; vertical-align:middle; }
 .search_btn { padding:2px 0 1px 0px;}
+
+/* #enquiryBtn */
+.conCreate {width:30%;float:right;}
+
+.row.searchdiv{width:80%;
+				padding-top:10px;
+				 margin:0 auto; /*가운데정렬..*/
+				}
+.form-control.searchSel{margin-right:10px; width:30px;
+     padding:5px;
+     border:1px solid #999;
+     font-family:'Nanumgothic';
+    /*  background:url('https://i.ibb.co/98Vbb8L/gnb-bg.gif') no-repeat 95% 50%; */
+     border-radius:3px;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance : none;
+}
+.form-control.searchText{margin-right:10px;border-left-width:0;border-right-width:0;border-top-width:0;border-bottom-width:1;}
+
+.text-center.mt-3.mb-3.mainProdNm{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* .row .recommand-wrap{
+	border:1px solid #999;
+}
+.recommand-prod{
+	width:33%;
+	min-height: 303px;
+}
+ */
+/*main Page Circle*/
+/* .img-fluid {
+  width: 100%;
+}
+.img-fluid:top{
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.img-fluid.border:after{
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+ */
