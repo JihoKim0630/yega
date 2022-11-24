@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.project.yega.board.dto.BoardContentDTO;
 import com.project.yega.comn.JsonUtill;
 import com.project.yega.comn.Pagination;
+import com.project.yega.comn.dto.ErrorDTO;
 import com.project.yega.comn.dto.PageDTO;
 import com.project.yega.entity.BoardContentEntity;
 
@@ -128,8 +128,6 @@ public class BoardController {
      public String enquiryForm(@RequestParam(value="boardId",defaultValue = "0", required = false) int boardId,
 				    		   @RequestParam(value="contentSeq",defaultValue = "0", required = false) int contentSeq, 
 				    		    Model model){
-    	 
-    	 
     	 if(contentSeq!= 0) {//수정일 때
     		 BoardContentEntity content = boardService.getBoardContentDtl(contentSeq);
     		 model.addAttribute("reqData", content);
@@ -150,37 +148,50 @@ public class BoardController {
  	 * 문의사항 게시글 상세
  	 */
       @PostMapping(value ="/enquiryDtl")
-      public String getEnquiryDtl(BoardContentDTO boardContentDTO, Model model) {
+      @ResponseBody
+      public ResponseEntity getEnquiryDtl(@RequestBody BoardContentDTO boardContentDTO, Model model) {
     	  log.debug("========>boardContentDTO\n" + boardContentDTO);
     	 if(boardContentDTO == null) {
     		 //잘못된 접근
+    		 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorDTO("ERR001", "잘못 된 접근입니다."));
     	 }
-      	BoardContentEntity content = boardService.getBoardContentDtl(boardContentDTO.getId());
-      	
-      	
-      	model.addAttribute("reqData", content);
-      	model.addAttribute("boardId", content.getBoard().getId());
-
-      	log.debug("========>content\n" + content);
-      
-     	 return "board/enquiryDtl";
+    	 if(!pwCheck(boardContentDTO)) {//비밀번호 불일치
+    		 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorDTO("ERR002", "비밀번호가 불일치합니다."));
+    	 }else {//일치
+    		 BoardContentEntity content = boardService.getBoardContentDtl(boardContentDTO.getId());
+    		 getContDtl(content, model);
+    		 
+    		 return ResponseEntity.ok(content);
+    	 }
       }
       
       /*
        * 게시글 비밀번호 확인
        */
-      @PostMapping(value ="/pwCheck")
-      @ResponseBody
-      public <T> BodyBuilder pwCheck(@RequestBody BoardContentDTO boardContentDTO) {
-    	  
+      //  @PostMapping(value ="/pwCheck")
+      public String getContDtl( BoardContentEntity boardContentDTO, Model model) {
+
+ 		 model.addAttribute("reqData", boardContentDTO);
+ 		 model.addAttribute("boardId", boardContentDTO.getBoard().getId());
+    	  return "board/enquiryDtl";
+      }
+      /*
+       * 게시글 비밀번호 확인
+       */
+    //  @PostMapping(value ="/pwCheck")
+      public boolean pwCheck( BoardContentDTO boardContentDTO) {
+    	  boolean pwValidFlag;
     	  BoardContentEntity content = boardService.getBoardContentDtl(boardContentDTO.getId());
     	  
+    	  log.debug("/pwCheck inDTO >>" + boardContentDTO.toString());
     	  if(content.getContentPw() != null && !content.getContentPw().equals(boardContentDTO.getContentPw())) {
         		log.debug("비밀번호 오류!!");
-        		return ResponseEntity.status(HttpStatus.UNAUTHORIZED);
+        		pwValidFlag = false;
+        		return pwValidFlag;
     	  }
+    	  pwValidFlag = true;
     	  
-    	  return ResponseEntity.ok();
+    	  return pwValidFlag;
       }
       
      /*

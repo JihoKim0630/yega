@@ -151,6 +151,7 @@
 <script>
  
 let currConId = '';
+let testData = '';
 $( document ).ready(function() {
 	//drawContents(conList);
 	$('tr[name=conRow]').on('click',function(){
@@ -218,7 +219,7 @@ $( document ).ready(function() {
 	$('#submitPw').on('click', function(){
 		console.log("submitPw");
 		$.ajax({
-		    url: "/board/pwCheck", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+		    url: "/board/enquiryDtl", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
 		    dataType:'json',
 	        contentType: 'application/json',
 		    data: JSON.stringify(
@@ -228,8 +229,14 @@ $( document ).ready(function() {
 		    method: "POST",   // HTTP 요청 메소드(GET, POST 등)
 		    async: true, //비동기 여부
 		})
-		.always(function(xhr, status) {
-			alert("체크 결과");
+		.success(function(data){
+			console.log(">>data>>" + JSON.stringify(data));
+		}).fail(function(data){
+			console.log(">>fail data>>" + JSON.stringify(data));
+			alert(data.responseJSON.message);
+
+		}).always(function(xhr, status) {
+			//alert("체크 결과");
 		});
 		
 		

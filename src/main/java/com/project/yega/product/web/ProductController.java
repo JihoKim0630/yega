@@ -81,8 +81,15 @@ public class ProductController {
     @PostMapping(value ="/searchByCtgId")
     @ResponseBody
     public ResponseEntity<List<ProductDTO>> searchProductByCtgId(@RequestBody ProductDTO productDTO) {
+    	List<ProductDTO> resultDTO;
+    	
+    	if(productDTO.getCategoryLvl() == 1) {
+    		log.debug("카테고리 레ㅔㄹ1");
+    		resultDTO = productService.findByOppCtgIdNativeQuery(productDTO);//lvl1 카테고리인 경우
+    	}else {
+    		resultDTO = productService.searchProductByCtgId(productDTO);//lvl2 카테고리인 경우
+    	}
    	 
-    	List<ProductDTO> resultDTO = productService.searchProductByCtgId(productDTO);
     	log.debug("========productDTO : \n" + resultDTO);
     	
     	//상품아이디로 이미지리스트 가져와서 setting해준다.

@@ -119,6 +119,18 @@ public class ProductService {
 		  List<ProductDTO> productDTO = Arrays.asList(modelmapper.map(productRepository.findByCategory_Id(inDTO.getCategoryId()),ProductDTO[].class));
 		  return productDTO; 
 	  }
+	  /**
+	   *  카테고리아이디로 하위 카테고리의 상품리스트 가져오는 메소드 
+	   * @param    
+	   * @return List<ProductDTO> 
+	   * @ 작성자 KJH    
+	   * @ version 1.0   
+	   */
+	  public List<ProductDTO> findByOppCtgIdNativeQuery(ProductDTO inDTO) { 
+		  
+		  List<ProductDTO> productDTO = Arrays.asList(modelmapper.map(productRepository.findByOppCtgIdNativeQuery(inDTO.getCategoryId()),ProductDTO[].class));
+		  return productDTO; 
+	  }
 	  
 	  
 }

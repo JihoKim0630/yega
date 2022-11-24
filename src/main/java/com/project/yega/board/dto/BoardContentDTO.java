@@ -23,6 +23,7 @@ public class BoardContentDTO {
     private int lookUpCnt;		//조회수
     private String createDt;	//생성일시
     private String updateDt;	//수정일시
+    private String authYn;	//권한여부
 
     private PageDTO pageDTO; //페이징처리 관련
 }

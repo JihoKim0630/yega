@@ -55,17 +55,17 @@
 	            <div class="col-12 col-md-4 p-5 mt-3 recommand-prod">
 	                <a href="#"><img src="${recommandProd[0].ref2} " class="rounded-circle img-fluid border"></a>
 	                <h5 class="text-center mt-3 mb-3 mainProdNm">${recommandProd[0].ref3}</h5>
-	                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+	                <p class="text-center"><a class="btn btn-success" href="/product/detail/${recommandProd[0].ref1}">Go Shop</a></p>
 	            </div>
 	            <div class="col-12 col-md-4 p-5 mt-3 recommand-prod">
 	                <a href="#"><img src="${recommandProd[1].ref2}" class="rounded-circle img-fluid border"></a>
 	                <h2 class="h5 text-center mt-3 mb-3 mainProdNm">${recommandProd[1].ref3}</h2>
-	                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+	                <p class="text-center"><a class="btn btn-success" href="/product/detail/${recommandProd[1].ref1}">Go Shop</a></p>
 	            </div>
 	            <div class="col-12 col-md-4 p-5 mt-3 recommand-prod">
 	                <a href="#"><img src="${recommandProd[2].ref2}" class="rounded-circle img-fluid border"></a>
 	                <h2 class="h5 text-center mt-3 mb-3 mainProdNm">${recommandProd[2].ref3}</h2>
-	                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+	                <p class="text-center"><a class="btn btn-success" href="/product/detail/${recommandProd[2].ref1}">Go Shop</a></p>
 	            </div>
 	        <!-- </div> -->
         </div>

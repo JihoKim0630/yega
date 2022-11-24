@@ -32,7 +32,12 @@ Custom Css
 }
 .form-control.searchText{margin-right:10px;border-left-width:0;border-right-width:0;border-top-width:0;border-bottom-width:1;}
 
-.text-center.mt-3.mb-3.mainProdNm{
+.mt-3.mb-3.mainProdNm{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.h3.text-decoration-none.mainProdNm{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;

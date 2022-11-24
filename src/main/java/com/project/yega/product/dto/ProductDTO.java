@@ -15,6 +15,7 @@ public class ProductDTO {
     private String prodNm; 		//상품명
     private CategoryDTO category; 		//카테고리아이디
     private int categoryId; 		//카테고리아이디 
+    private int categoryLvl; 		//카테고리레벨 
     private String displayYn;	//전시여부
     private String mnfcCompny;  //제조사명
     private long prodPrice; 	//상품가격

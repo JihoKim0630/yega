@@ -10,9 +10,6 @@ var _prodList = JSON.parse('${prodList}');
 var _testData;
 
 $( document ).ready(function() {
-	console.log("_rootCtgList 0> " +_rootCtgList);
-	console.log("_prodList 1> " +_prodList);
-	
 	$.each($('#rootCtgUl').children('li'), function(){
 		console.log($(this).attr('id'));
 		var pId = $(this).attr('id');
@@ -22,12 +19,17 @@ $( document ).ready(function() {
 
 	drawProdList(_prodList);
 	
-	function setComma(num){
-		
-		console.log("setComma num : " +num);
-		return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-	}
 });
+
+/*
+ * 가격 콤마표시
+ *
+ *
+ */
+function setComma(num){
+	
+	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
 
 /*
  * 상품리스트 그리기
@@ -36,10 +38,10 @@ $( document ).ready(function() {
  */
 var drawProdList = function(prodList){
 	
-	console.log("drawProd>>>>>\n" + prodList);
 	var html ='';
 	$.each(prodList, function(i, item){
-		console.log(item);
+		
+		var commaPrice = setComma(item.prodPrice);
 		html += ' <div class="col-md-4">                                                                                                                      ' ;
 		html += '       <div class="card mb-4 product-wap rounded-0">                                                                                         ' ;
 		html += '           <div class="card rounded-0">                                                                                                      ' ;
@@ -52,9 +54,9 @@ var drawProdList = function(prodList){
 		html += '               </div>                                                                                                                        ';
 		html += '           </div>                                                                                                                            ';
 		html += '           <div class="card-body">                                                                                                           ';
-		html += '               <a href="shop-single.html" class="h3 text-decoration-none">'+item.prodNm+'</a>                                                 ';
-		html += '               <c:set var="commaPrice" value="javascript:setComma('+item.prodPrice+');" />                                                    ';
-		html += '               <p class="text-center mb-0">10,000원</p>                                                                                      ';
+		html += '               <a href="shop-single.html" class="h3 text-decoration-none mainProdNm"></a>                                                 ';
+		html += '               	<h2 class="h5 mt-3 mb-3 mainProdNm">'+item.prodNm+'</h2></a>                                                 ';
+		html += '               <p class="text-center mb-0">'+commaPrice+'원</p>                                                                                      ';
 		html += '           </div>                                                                                                                         ';
 		html += '       </div>';
 		html +='   </div> ';
@@ -67,16 +69,18 @@ var drawProdList = function(prodList){
  *	ctgId로 상품 찾기
  *
  */
-var searchByCtgId = function(ctgId){
+var searchByCtgId = function(ctgId, ctgLvl){
 		//var ctgId = $(this).closest('li').attr('id');
 		
 		console.log("ctgId > " + ctgId);
+		console.log("ctgLvl > " + ctgLvl);
 		 $.ajax({
 			    url: "/product/searchByCtgId", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
 			    dataType:'json',
 		        contentType: 'application/json',
 			    data: JSON.stringify({
 			    	categoryId : Number(ctgId)
+			    	,categoryLvl :Number(ctgLvl) 
 			    }) ,  // HTTP 요청과 함께 서버로 보낼 데이터
 			    method: "POST",   // HTTP 요청 메소드(GET, POST 등)
 			    async: true, //비동기 여부
@@ -101,7 +105,7 @@ var drawSubCtg = function(data, oppCtgId){
     var sHtml='';
     
     $.each(data, function(index, item){
-    	sHtml += '<li id="'+item.id+'"><a name="ctgCd" class="text-decoration-none" onclick="javascript:searchByCtgId('+item.id+');" href="#" >'+item.ctgNm +'</a></li>'
+    	sHtml += '<li id="'+item.id+'"><a name="ctgCd" class="text-decoration-none" onclick="javascript:searchByCtgId('+item.id+', 2);" href="#" >'+item.ctgNm +'</a></li>'
     });
     
 	$('#childFor_'+oppCtgId).empty().append(sHtml);
@@ -179,7 +183,7 @@ function getChildCtgList(oppCtgId){
                 <ul class="list-unstyled templatemo-accordion" id="rootCtgUl">
                 	<c:forEach items="${rootCtgList}" var = "item" varStatus="vs">
 	               		<li class="pb-3" id="rootCtg_${item.id}" data-ctg-id="${item.id }">
-	                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+	                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" onclick="javascript:searchByCtgId(${item.id}, ${item.ctgLvl });" href="#">
 	                             ${item.ctgNm }
 	                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
 	                        </a>
