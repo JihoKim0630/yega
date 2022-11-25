@@ -5,6 +5,10 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.project.yega.category.dto.CategoryDTO;
 import com.project.yega.category.web.CategoryService;
 import com.project.yega.comn.JsonUtill;
+import com.project.yega.comn.Pagination;
+import com.project.yega.comn.dto.PageDTO;
+import com.project.yega.entity.ProductEntity;
 import com.project.yega.product.dto.ProdImgDTO;
 import com.project.yega.product.dto.ProductDTO;
 
@@ -37,12 +44,14 @@ public class ProductController {
 	@Autowired
 	private ModelMapper modelmapper;
 	@Autowired
+	private Pagination pagination;
+	@Autowired
 	private JsonUtill jsonUtill;
     
     @GetMapping("/shop")
-    public String getProductList(Model model) {
+    public String getProductList(Model model, @PageableDefault(sort = "id", direction = Direction.DESC, size = 10) Pageable pageable) {
     	
-    	List<ProductDTO> prodList = productService.getProductList("Y");//전시여부 Y 인 상품만 가져오기..
+    	Page<ProductEntity> prodList = productService.getProductList("Y", pageable);//전시여부 Y 인 상품만 가져오기..
     	jsonUtill.ObjToJson(prodList);
     	log.debug("상품 목록 : " +prodList.toString());
     	
@@ -80,17 +89,19 @@ public class ProductController {
      */
     @PostMapping(value ="/searchByCtgId")
     @ResponseBody
-    public ResponseEntity<List<ProductDTO>> searchProductByCtgId(@RequestBody ProductDTO productDTO) {
+    public ResponseEntity<List<ProductDTO>> searchProductByCtgId(@RequestBody ProductDTO productDTO, @PageableDefault(sort = "id", direction = Direction.DESC, size = 10) Pageable pageable) {
     	List<ProductDTO> resultDTO;
+    	Page<ProductEntity> entities;
+    	
     	
     	if(productDTO.getCategoryLvl() == 1) {
     		log.debug("카테고리 레ㅔㄹ1");
-    		resultDTO = productService.findByOppCtgIdNativeQuery(productDTO);//lvl1 카테고리인 경우
+    		entities = productService.findByOppCtgIdNativeQuery(productDTO, pageable);//lvl1 카테고리인 경우
     	}else {
-    		resultDTO = productService.searchProductByCtgId(productDTO);//lvl2 카테고리인 경우
+    		entities = productService.searchProductByCtgId(productDTO, pageable);//lvl2 카테고리인 경우
     	}
    	 
-    	log.debug("========productDTO : \n" + resultDTO);
+    	log.debug("========productDTO : \n" + entities);
     	
     	//상품아이디로 이미지리스트 가져와서 setting해준다.
     	for(ProductDTO obj : resultDTO ) {
@@ -103,7 +114,9 @@ public class ProductController {
     		imgList.add(mainImg);
     		obj.setProdImgList(imgList);
     	}
-   	 
+   	 	
+    	PageDTO pageDTO = pagination.pagination(entities, 5);
+    	
     	return ResponseEntity.ok().body(resultDTO);
     }
 }

@@ -5,9 +5,12 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.project.yega.entity.ProdImgEntity;
+import com.project.yega.entity.ProductEntity;
 import com.project.yega.product.dto.ProdImgDTO;
 import com.project.yega.product.dto.ProductDTO;
 
@@ -31,11 +34,11 @@ public class ProductService {
 	 * @ 작성자 KJH    
 	 * @ version 1.0   
 	 */
-	public List<ProductDTO> getProductList(String displayYn) {
+	public Page<ProductEntity> getProductList(String displayYn, Pageable pageable) {
 //		List<ProductEntity> prodList = productRepository.findAll();
-
-        List<ProductDTO> prodList = Arrays.asList(modelmapper.map(productRepository.findByDisplayYn(displayYn),ProductDTO[].class));
-		return prodList;
+		Page<ProductEntity> products = productRepository.findByDisplayYn(displayYn, pageable);
+//        List<ProductDTO> prodList = Arrays.asList(modelmapper.map(productRepository.findByDisplayYn(displayYn),ProductDTO[].class));
+		return products;
 	}
 	/**
 	 *     상품 상세 가져오는 메소드 
@@ -113,11 +116,12 @@ public class ProductService {
 	   * @ 작성자 KJH    
 	   * @ version 1.0   
 	   */
-	  public List<ProductDTO> searchProductByCtgId(ProductDTO inDTO) { 
-		  productRepository.findByCategory_Id(inDTO.getCategoryId());
+	  public Page<ProductEntity> searchProductByCtgId(ProductDTO inDTO, Pageable pageable) { 
 		  
-		  List<ProductDTO> productDTO = Arrays.asList(modelmapper.map(productRepository.findByCategory_Id(inDTO.getCategoryId()),ProductDTO[].class));
-		  return productDTO; 
+		  Page<ProductEntity> products = productRepository.findByCategory_Id(inDTO.getCategoryId(), pageable);;
+		  
+		 // List<ProductDTO> productDTO = Arrays.asList(modelmapper.map(productRepository.findByCategory_Id(inDTO.getCategoryId()),ProductDTO[].class));
+		  return products; 
 	  }
 	  /**
 	   *  카테고리아이디로 하위 카테고리의 상품리스트 가져오는 메소드 
@@ -126,10 +130,11 @@ public class ProductService {
 	   * @ 작성자 KJH    
 	   * @ version 1.0   
 	   */
-	  public List<ProductDTO> findByOppCtgIdNativeQuery(ProductDTO inDTO) { 
+	  public Page<ProductEntity> findByOppCtgIdNativeQuery(ProductDTO inDTO, Pageable pageable) { 
 		  
-		  List<ProductDTO> productDTO = Arrays.asList(modelmapper.map(productRepository.findByOppCtgIdNativeQuery(inDTO.getCategoryId()),ProductDTO[].class));
-		  return productDTO; 
+		  Page<ProductEntity> products = productRepository.findByOppCtgIdNativeQuery(inDTO.getCategoryId(),pageable);
+		 // List<ProductDTO> productDTO = Arrays.asList(modelmapper.map(productRepository.findByOppCtgIdNativeQuery(inDTO.getCategoryId(),pageable),ProductDTO[].class));
+		  return products; 
 	  }
 	  
 	  
